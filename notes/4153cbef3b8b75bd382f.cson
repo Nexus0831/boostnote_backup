@@ -1,0 +1,12 @@
+createdAt: "2018-02-27T13:22:32.234Z"
+updatedAt: "2018-02-27T13:27:27.979Z"
+type: "MARKDOWN_NOTE"
+folder: "55949ba7939b08dec045"
+title: "ポインタ"
+content: '''
+  # ポインタ
+  ポインタを利用するとデータを格納しているアドレスで位置を得るので整数型よりもデータの大きい変数を扱う際に省メモリですむ。
+'''
+tags: []
+isStarred: false
+isTrashed: false

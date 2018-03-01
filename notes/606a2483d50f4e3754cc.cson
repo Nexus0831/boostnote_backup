@@ -1,0 +1,40 @@
+createdAt: "2018-02-22T10:59:01.376Z"
+updatedAt: "2018-02-24T07:05:39.482Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "dep(パッケージ管理)"
+content: '''
+  ## dep(パッケージ管理)
+  
+  ```shell
+  brew install go --with-cc-all
+  go get -u github.com/golang/dep/cmd/dep
+  set -x PATH $HOME/go/bin $PATH
+  ```
+  
+  でdepをインストールした。
+  1の`--with-cc-all`はクロスコンパイル用らしい
+  
+  ```shell
+  cd myproject # goのプロジェクトディレクトリに移動
+  dep init # goのプロジェクトセットアップ
+  dep ensure # 一気に依存関係の解消(install)
+  ```
+  以上でパッケージ管理
+  
+  ## dep コマンド一覧
+  ```shell
+  init # 既存か新しいGoプロジェクトをセットアップする
+  status # プロジェクトの依存関係のステータスを報告する
+  ensure # 依存関係がプロジェクト内で安全に確保されていることを確認する
+  ensure -update # 全ての依存パッケージのバージョンを更新
+  ensure -add # プロジェクトに依存関係を追加
+  prune # Pruningは自動的に実行されます
+  version # depのバージョンを表示
+  ```
+'''
+tags: [
+  "パッケージ管理"
+]
+isStarred: false
+isTrashed: false

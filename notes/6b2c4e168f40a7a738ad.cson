@@ -1,0 +1,17 @@
+createdAt: "2018-02-21T00:27:00.019Z"
+updatedAt: "2018-02-24T07:06:27.424Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "Goで気をつけること"
+content: '''
+  Goで気をつけること
+  
+  - go言語はコンパイル時に使っていないパッケージをインポートしているとコンパイルが通らない。
+  - 変数名は大文字でないといけない？
+  - goでは使わないパッケージのインポートが許されないのでパッケージを使っていないとdepのensureが通らない
+'''
+tags: [
+  "注意"
+]
+isStarred: false
+isTrashed: false

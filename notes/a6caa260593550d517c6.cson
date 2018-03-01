@@ -1,0 +1,19 @@
+createdAt: "2018-02-24T07:24:38.684Z"
+updatedAt: "2018-02-24T07:28:17.877Z"
+type: "MARKDOWN_NOTE"
+folder: "796d5842bb9d51e60090"
+title: "豆知識"
+content: '''
+  # 豆知識
+  
+  ## 環境設定時の`:`
+  unix系で環境設定をするときは
+  ```
+  export GOPATH=$(pwd):$GOPATH
+  ```
+  などで設定する。
+  この時の`:`は区切り文字であり、パスは最初の方から探索されるためこの場合は`$(pwd)`が既存のGOPATHよりも優先度が高いことを意味する。
+'''
+tags: []
+isStarred: false
+isTrashed: false

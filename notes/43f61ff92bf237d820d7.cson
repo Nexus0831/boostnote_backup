@@ -1,0 +1,449 @@
+createdAt: "2018-02-25T14:25:35.850Z"
+updatedAt: "2018-03-01T06:59:49.003Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "基本構文"
+content: '''
+  # 基本構文
+  
+  ## パッケージのインポート
+  
+  ### 単一インポート
+  ```go
+  import "fmt"
+  ```
+  
+  ### 複数インポート
+  ```go
+  import (
+    "fmt"
+    "strings"
+  )
+  ```
+  
+  ### オプション付きでインポート
+  ```go
+  import (
+      // 任意の名前（下記ではf）を指定した場合はプログラム内でのパッケージ名を変えられる。
+      f "fmt"
+      // _はインポートしたパッケージを使用しないことを意味する
+      _ "github.com/wdpress/gosample" 
+      // .をつけた場合はパッケージ名が省略可能になる。
+      . "strings"
+  )
+  ```
+  
+  ## 変数
+  - 1文字目が**小文字**の場合はそのパッケージだけで使える変数
+  - 1文字目が**大文字**の場合は、他のパッケージからも見える変数
+  
+  ### 基本形
+  ```go
+  var message string = "Hello World!!"
+  ```
+  変数の宣言は`var`で始まり、次に変数名、最後が型となる。これが基本形。
+  
+  ### 一度に複数の宣言と初期化
+  ```go
+  var a, b, c string = "a", "b", "c"
+  
+  // 一度に多くの変数を同じ型で宣言する場合は、varと２つ目以降の型を省略できる
+  var (
+    a string = "a"
+    b = "b"
+    c = "c"
+  )
+  ```
+  
+  ### 関数内部での宣言と初期化
+  変数の宣言と初期化を関数の内部で行う場合は、varと型宣言を省略し、`:=`を用いれる。
+  ```go
+  func main() {
+    message := "Hello World!"
+    fmt.Print(message)
+  }
+  ```
+  
+  ### 定数
+  変数宣言の`var`を`const`に変えて宣言
+  ```go
+  const message string "Hello"
+  ```
+  定数宣言できる型は組み込み型のうち`error`以外の型のみ。
+  
+  ### ゼロ値
+  定数を宣言し、明示的に値を初期化しなかった場合、変数は**ゼロ値**というデフォルト値で初期化されます。ゼロ値は型ごとに決まっている
+  
+  |型|ゼロ値|
+  |---|---|
+  |整数型|0|
+  |不動小数点型|0.0|
+  |bool|false|
+  |string|""|
+  |配列|各要素がゼロ値の構造体|
+  |構造体|各フィールだがゼロ値の構造体|
+  |その他の型|nil(null)|
+  
+  ## if（条件式）
+  Goではifの条件文に丸括弧は必要ない
+  ```go
+  func main()  {
+  	a, b := 110, 100
+  	if a > b {
+  		fmt.Print("a")
+  	} else if a < b {
+  		fmt.Print("b")
+  	} else {
+  		fmt.Print("none")
+  	}
+  }
+  ```
+  なおif文が1行でも波括弧を省略できない。
+  また三項演算子も存在しない。これはGoが多様な書き方を認めず使用を小さくする方針のためである。
+  
+  ## for(繰り返し)
+  Goではforの条件文に丸括弧は必要ない
+  ```go
+  func main()  {
+  	for i := 0; i < 10; i++ {
+  		fmt.Println("Hello World!")
+  	}
+  }
+  ```
+  Goには繰り返しを表現する方法はfor文以外に存在しない。
+  
+  ### 無限ループ
+  ```go
+  func main()  {
+  	for {
+  		fmt.Println("Hello World!")
+  	}
+  }
+  ```
+  条件式を省略することで同様の表現ができる。
+  `break`, `continue`も**java**などと同じように使用できる。
+  
+  ## switch
+  ```go
+  func main() {
+  	n := 10
+  	switch n {
+  	case 15:
+  		fmt.Print("FizzBuzz")
+  	case 5, 10:
+  		fmt.Println("Buzz")
+  	case 3, 6, 9:
+  		fmt.Println("Fizz")
+  	default:
+  		fmt.Println(n)
+  	}
+  }
+  ```
+  Goの**switch文**の`case`にはカンマ区切りで複数の値を指定できる。
+  
+  ### fallthrough
+  Goでは`case`ごとに`breake`を書かなくても**switch文**が終了する。
+  そのため`case`が終わった後に次の`case`を実行したい場合には`fallthrough`を使用する。
+  ```go
+  func main() {
+  	n := 10
+  	switch n {
+  	case 15:
+  		fmt.Print("FizzBuzz")
+  	case 5, 10:
+  		fmt.Println("Buzz")
+  		fallthrough
+  	case 3, 6, 9:
+  		fmt.Println("Fizz")
+  	default:
+  		fmt.Println(n)
+  	}
+  }
+  ```
+  出力結果
+  ```
+  Buzz
+  Fizz
+  ```
+  
+  ## 関数
+  ```go
+  func sum(i, j int) {
+  	fmt.Print(i + j)
+    return i + j
+  }
+  ```
+  引数は変数、型の順番で宣言し、同じ型を複数宣言する場合は型の宣言を最後にまとめられる。
+  戻り値は`return`で宣言
+  
+  ### 複数の値を返す
+  Goの特徴として、関数は複数の値を返すことができる。
+  ```go
+  func swap(i, j int) (int, int) {
+  	return j, i
+  }
+  
+  func main() {
+  	x, y := 3, 4
+  	x, y = swap(x, y)
+  	fmt.Print(x, y) // 4, 3
+  
+  	x = swap(x, y) // コンパイルエラー
+    
+  	x, _ = swap(x, y) // 第二戻り値を無視
+  	fmt.Print(x) // 3
+  }
+  ```
+  関数の実行時には戻り値を格納する変数を必要な数だけ用意する必要がある。
+  数が合わないとコンパイルエラーになる。ただし`_`で明示的に無視もできる。
+  
+  ### エラーを返す関数
+  Goには内部で発生したエラーを戻り値で表現します。
+  処理に成功すればエラーには`nil`にし、異常が発生すればエラーだけに値が入り、他方はゼロ値になる。
+  ```go
+  func main() {
+    file, err := os.Open("hello.go")
+    if err != nil {
+      // エラー処理
+      // returnなどで処理を別の場所に抜ける
+    }
+    // fileを用いた処理
+  }
+  ```
+  自作のエラーは`errors`パッケージを用いて作ることができる。
+  ```go
+  import (
+  	"errors"
+  	"fmt"
+  	"log"
+  )
+  
+  func div(i, j int) (int, error) {
+  	if j == 0 {
+  		return 0, errors.New("divied by zero")
+  	}
+  	return i / j, nil
+  }
+  
+  func main() {
+  	n, err := div(10, 0)
+  	if err != nil {
+  		log.Fatal(err) // 2018/02/27 16:25:16 divied by zero
+  	}
+  	fmt.Print(n)
+  }
+  ```
+  複数の値を返す場合もエラーを最後にする習慣がある。
+  APIを設計する際も最後にするのがよい。
+  
+  ### 名前付き戻り値
+  Goでは戻り値にあらかじめ名前をつけられる。
+  名前付き戻り値は、関数内ではゼロ値で初期化された変数として扱うことができる。
+  これを用いると以下のように記述できる。
+  ```go
+  func div(i, j int) (result int, err error) {
+  	if j == 0 {
+  		err = errors.New("divied by zero")
+  		return
+  	}
+  	result = i / j
+  	return 
+  }
+  ```
+  名前付き戻り値を用いることで、関数の宣言から戻り値の意味が読み取りやすくなる。
+  
+  ### 関数リテラル
+  関数リテラルを用いると無名関数を作成できる。
+  ```go
+  func main() {
+  	func(i, j int) {
+  		fmt.Print(i + j)
+  	}(2, 4)
+  }
+  
+  ```
+  Goでの関数は第１級オブジェクトであるため、関数を変数に代入したり、関数の引数に渡せる。
+  以下はその例。
+  ```go
+  var sum func(i, j int) = func(i, j int) {
+  	fmt.Print(i + j)
+  }
+  
+  func main() {
+  	sum(2, 8)
+  }
+  ```
+  変数の型は関数の引数まで同じにする。
+  
+  ## 配列
+  Goの配列は固定長。
+  ```go
+  var arr [4]string
+  ```
+  `[...]`を用いると、必要な配列の長さを暗黙的に指定できます。
+  ```go
+  // どちらも同じ
+  arr := [3]string{"a", "b", "c"}
+  arr := [...]string{"a", "b", "c"}
+  ```
+  配列の型は長さも情報として含むため、長さの違う配列は別の型で判定される。
+  また、関数に配列を渡す場合は配列の**コピー**が渡される。
+  
+  ## スライス
+  可変長配列
+  ```go
+  var list []string
+  // 初期化同時
+  list := []string{"a", "b", "c"}
+  ```
+  
+  ### append
+  末尾に追加
+  ```go
+  var list []string
+  list = append(list, "a")
+  fmt.Print(list) // [a]
+  ```
+  
+  ### range
+  先頭から順番に処理をする場合に使用
+  ```go
+  list := []string{"a", "b", "c"}
+  for i, s := range list {
+    // i = 添字, s = 値
+    fmt.Println(i, s)
+  }
+  ```
+  
+  ### 値の切り出し
+  `string`、配列、スライスから、値を部分的にきりだせる。
+  ```go
+  s := []int{0, 1, 2, 3, 4, 5}
+  fmt.Print(s[2:4]) // [2 3]
+  fmt.Print(s[0:len(s)]) // [0, 1, 2, 3, 4, 5]
+  fmt.Print(s[:3]) // [0, 1, 2]
+  fmt.Print(s[3:]) // [3, 4, 5]
+  fmt.Print(s[:]) // [0, 1, 2, 3, 4, 5]
+  ```
+  
+  ### 可変長引数
+  関数の引数を下記のように指定すると、任意の型の引数をその型のスライスとして受け取れます。
+  
+  ```go
+  func sum(nums ...int) (result int) {
+    for _, n := range nums {
+      result += n
+    }
+    return
+  }
+  
+  func main() {
+    fmt.Print(sum(1, 2, 3, 4))
+  }
+  ```
+  
+  ## マップ
+  値をKey-Valueの対応で保存するデータ構造。
+  ```go
+  // 宣言
+  var month map[int]string = map[int]string{}
+  
+  // ペアの保存
+  month[1] = "jan"
+  month[2] = "Feb"
+  
+  // 初期化
+  month := map[int]string{
+    1: "jan", // カンマ区切り
+    2: "Fab",
+  }
+  ```
+  
+  ### 操作
+  マップから値を取り出すにはキーを指定し、戻り値として受け取る。
+  ```go
+  jan := month[1]
+  ```
+  この時２つ目の戻り値も受け取ると、指定したキーがマップに格納されているかをboolで返す。
+  ```go
+  _, ok := month[1]
+  
+  if ok {
+    // データがあった場合の処理
+  }
+  ```
+  削除するには組み込み関数`delete()`を使用する。
+  ```go
+  delete(month, 1)
+  ```
+  スライス同様に`range`を用いるとそれぞれ受け取りながら処理できるが、マップの場合は順番が保証されない。
+  ```go
+  for key, value := range month {
+    fmt.Printf("%d %s\\n", key, value)
+  }
+  ```
+  
+  ## ポインタ
+  ポインタ型の変数は、型の前に`*`を付ける。
+  アドレスは変数の前に`&`を付けて取得する。
+  ```go
+  func callByvalue(i int) {
+    i = 20
+  }
+  
+  func callByRef(i *int) {
+    *i = 20
+  }
+  
+  func main() {
+    var i int = 10
+    callByValue(i)
+    fmt.Println(i) // 10
+    callByRef(&i) // 参照先を上書き
+    fmt.Println(i) // 20
+  }
+  ```
+  
+  ## defer
+  関数呼び出しを`defer`の後ろに記述すると、`main()`を抜ける直前に必ず実行される。
+  ファイルの`Close()`に用いる。
+  ```go
+  func main() {
+    file, err := os.Open("./error.go")
+    if err != nil {
+      // エラー処理
+    }
+    
+    defer file.Close() // 関数を抜ける直前に実行
+  }
+  ```
+  
+  ## パニック
+  配列やスライスの範囲外にアクセスした時、ゼロ除算をしてしまった場合はエラーを戻り値で処理できない。
+  そのため代わりにパニックという方法でエラーが発生する。
+  パニックで発生したエラーは`recover()`という組み込み関数で取得する。
+  ```go
+  func main() {
+    defer func() {
+      err := recover()
+      if err != nil {
+        log.Fatal(err)
+      }
+    }()
+    
+    a := []int{1, 2, 3}
+    fmt.Println(a[10])
+  }
+  ```
+  `panic()`を用いて自発もできるが、回復が不可能なエラーなどしか使用しないこと。
+  原則エラーは戻り値として処理する。
+  
+  
+  
+  
+'''
+tags: [
+  "構文"
+]
+isStarred: false
+isTrashed: false

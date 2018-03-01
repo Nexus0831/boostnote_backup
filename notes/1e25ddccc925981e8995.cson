@@ -1,0 +1,32 @@
+createdAt: "2018-02-24T06:02:12.999Z"
+updatedAt: "2018-02-24T07:30:33.655Z"
+type: "MARKDOWN_NOTE"
+folder: "796d5842bb9d51e60090"
+title: "direnv"
+content: '''
+  direnv 
+  
+  ```shell
+  brew install direnv
+  echo 'eval (direnv hook fish)' >> ~/.config/fish/config.fish
+  set -x EDITOR vim
+  source ~/.config/fish/config.fish # 再読み込み
+  ```
+  上記でインストール
+  
+  ## 使い方
+  ```shell
+  direnv edit . # .envrcをvimで作成
+  direnv allow . # エラー吐かれた時に実行 direnvの実行を許可する。
+  ```
+  
+  ## goプロジェクト(default)
+  ```shell
+  export GOBIN=$(pwd)/bin
+  export GOPATH=$(pwd)
+  export PATH=$PATH:$GOBIN
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

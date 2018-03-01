@@ -1,0 +1,20 @@
+type: "MARKDOWN_NOTE"
+folder: "b1ab926b1b9c987ba6fb"
+title: "アイデアノート"
+content: '''
+  # アイデアノート
+  
+  ## 1. バーで相談
+  バーでマスターに相談ごとをしてスッキリした後、その気分に合わせた音楽を流す
+  ローディングアニメーション参考(http://photoshopvip.net/95239)
+  
+  ## 2. coffeescript(Ruby or Python)
+  javascriptの代わりにcoffeescriptを利用する
+'''
+tags: [
+  "アイデア"
+]
+isStarred: false
+isTrashed: false
+createdAt: "2017-09-05T14:38:31.148Z"
+updatedAt: "2018-02-24T10:31:01.942Z"

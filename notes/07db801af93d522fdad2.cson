@@ -1,0 +1,14 @@
+createdAt: "2018-02-24T07:03:37.394Z"
+updatedAt: "2018-02-24T07:04:41.743Z"
+type: "MARKDOWN_NOTE"
+folder: "796d5842bb9d51e60090"
+title: "hook関数"
+content: '''
+  ## hook関数
+  何か操作を行った時に呼び出されるhook関数を登録できる。
+'''
+tags: [
+  "shell"
+]
+isStarred: false
+isTrashed: false

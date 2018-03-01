@@ -1,0 +1,22 @@
+createdAt: "2018-02-22T02:48:14.776Z"
+updatedAt: "2018-02-22T03:16:01.964Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "プロジェクトの構成"
+content: '''
+  # プロジェクトの構成
+  
+  ```
+  myproject
+   |---- bin # go install時の格納先
+   |
+   |---- pkg # 依存パッケージのオブジェクトファイル
+   |
+   |---- src # プログラムのソースコード
+  ```
+'''
+tags: [
+  "構成"
+]
+isStarred: false
+isTrashed: false

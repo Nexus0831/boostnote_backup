@@ -1,0 +1,25 @@
+createdAt: "2018-02-24T06:20:27.022Z"
+updatedAt: "2018-02-25T14:38:56.282Z"
+type: "MARKDOWN_NOTE"
+folder: "796d5842bb9d51e60090"
+title: "fish shell"
+content: '''
+  #fish shell
+  
+  ## 設定ファイル
+  ```shell
+  vi ~/.config/fish/config.fish # fish shellの設定ファイル
+  source ~/.config/fish/config.fish # 再読み込み
+  ```
+  
+  ## PATH設定と環境変数
+  fish shellにはexportがないため`--export`か`-x`をオプションでつける。
+  ```shell
+  set -x PATH 追加したいパス $PATH # 既存のパスの前に追加
+  set -x PATH $PATH 追加したいパス # 既存のパスの後ろに追加
+  set -x 環境変数名 値 # 環境変数の追加
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

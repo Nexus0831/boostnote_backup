@@ -1,0 +1,41 @@
+createdAt: "2018-02-21T00:32:13.500Z"
+updatedAt: "2018-02-25T14:38:24.375Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "ドキュメント"
+content: '''
+  ドキュメント
+  
+  ## 標準パッケージ
+  
+  [https://golang.org/pkg/](https://golang.org/pkg/)
+  
+  |パッケージ|用途|
+  |---|---|
+  |archive, compress|tar, zlibなどの圧縮やアーカイブ形式のサポート|
+  |bufio|バッファされたI/O機能をサポート(Reader, Writer)|
+  |builtin|識別子のドキュメントを提供|
+  |bytes|バイトスライス操作のための関数|
+  |container|ヒープ、二重リンクリスト、循環リストの操作を実装|
+  |crypto|AES, RSAなどの暗号化形式のサポート|
+  |database|RDBへのSQLクエリインターフェースとドライバインターフェース|
+  |encoding|JSON, XML, CSVなどのフォーマットサポート|
+  |go|Go言語自体のパーサやAST(抽象構文木)の取得|
+  |html, text|HTMLやTEXT形式のテンプレート|
+  |image|2D画像に対するサポート|
+  |net|TCP, HTTP, RPC, SMTPなどのネットワークプログラミングのサポート|
+  |path|ファイルパスのサポート|
+  |sync|並行処理のためのロックや同期化のサポート|
+  |testing|テストやベンチマークのサポート|
+  
+  ```
+  godoc -http="3000"
+  ```
+  以上でlocalhostでドキュメントにアクセス可能
+'''
+tags: [
+  "ドキュメント"
+  "標準パッケージ"
+]
+isStarred: false
+isTrashed: false

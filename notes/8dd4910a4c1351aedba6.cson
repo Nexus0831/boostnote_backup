@@ -1,0 +1,21 @@
+createdAt: "2018-02-11T12:31:09.798Z"
+updatedAt: "2018-02-11T12:32:11.814Z"
+type: "MARKDOWN_NOTE"
+folder: "b1ab926b1b9c987ba6fb"
+title: "Gitコミットのメッセージ(プレフィックス)"
+content: '''
+  # Gitコミットのメッセージ(プレフィックス)
+  
+  ## [参考にしたプレフィックスルール](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#type)
+  - **feat**: 新機能
+  - **fix**: バグ修正
+  - **docs**: ドキュメントのみ変更
+  - **style**: コードの意味に影響を与えない変更（空白、書式、セミコロンの欠落など）
+  - **refactor**: バグを修正したり、機能を追加したりしないコード変更
+  - **perf**: パフォーマンスを向上させるコードの変更
+  - **test**: 既存のテストの欠落または修正の追加
+  - **chore**: ビルドプロセスやドキュメント作成などの補助ツールやライブラリの変更
+'''
+tags: []
+isStarred: false
+isTrashed: false
