@@ -1,9 +1,126 @@
 createdAt: "2018-03-01T07:00:29.439Z"
-updatedAt: "2018-03-01T07:00:39.582Z"
+updatedAt: "2018-03-02T11:17:31.561Z"
 type: "MARKDOWN_NOTE"
 folder: "aeae1f50d1814c94c245"
 title: "応用構文"
-content: "# 応用構文"
+content: '''
+  # 応用構文
+  
+  ## type
+  Goでは既存の型を拡張した独自の型を定義できる
+  ```go
+  type ID int
+  type Priority int
+  
+  func ProcessTask(id ID, priority Priority) {
+    fmt.Println(id, priority)
+  }
+  
+  var id ID = 3
+  var priority Priority = 5
+  ProcessTask(priority, id) // コンパイルエラー
+  ```
+  これを利用することで堅牢なプログラムを作成でき、IDEからのサポート、リファクタリングもしやすくなる。
+  
+  ## 構造体(struct)
+  構造体は複数のデータを一つにまとめるのが基本的な役割だが、メソッドを持つことができ、`Ruby`や`Java`でのクラスに近い役割を持てる。
+  
+  ```go
+  type Task struct {
+    ID int
+    Detail string
+    done bool
+  }
+  ```
+  各フィールドの可視性は名前で決まり、大文字で始まればパブリック、小文字で始まればパッケージ内のスコープとなる。
+  
+  ### 値の生成
+  
+  ```go
+  func main() {
+  	var task Task = Task{
+  		ID: 1,  // カンマに注意
+  		Detail: "Detail",
+  		done: false,
+  	}
+  	fmt.Println(task.ID)
+  	fmt.Println(task.Detail)
+  	fmt.Println(task.done)
+  }
+  ```
+  構造体に定義した順でパラメータを渡すことで、フィールド名を省略することもできる。
+  ```go
+  func main() {
+    var task Task = Task{
+  		1, "Detail", false,
+  	}
+  }
+  ```
+  構造体の生成時に値を明示的に指定しなかった場合はゼロ値で初期化される。
+  
+  ### ポインタ型
+  構造体もポインタ型で扱うことができる。
+  ```go
+  var task *Task = &Task{} // 宣言
+  
+  func Finish(task *Task) { // 関数の引数
+    task.done = true
+  }
+  ```
+  
+  ### new()
+  構造体は組み込み関数の`new()`を用いて初期化することもできる。
+  `new()`は構造体のフィールドをゼロ値で初期化し、そのポインタを返す。
+  ```go
+  func main() {
+    var task *Task = new(Task)
+    task.ID = 1
+    task.Detail = "Detail"
+    fmt.Println(task.done)
+  }
+  ```
+  
+  ### コンストラクタ
+  Goではコンストラクタに当たる構造が存在しない。
+  その代わりに`New`で始まる関数を定義し、その内部で構造体を生成するのが通例。
+  ```go
+  func NewTask(id int, detail string) *Task {
+  	task := &Task{
+  		ID:id,
+  		Detail:detail,
+  		done:false,
+  	}
+  
+  	return task
+  }
+  
+  func main() {
+  	task := NewTask(1, "Detail")
+  	fmt.Printf("%+v", task)
+  }
+  ```
+  
+  ### メソッド
+  メソッド内にレシーバとして渡されるのはコピーのため、中身を変更したければ、ポインタとして受け取るようにしなければ。
+  ```go
+  func (task Task) Print() string {
+  	str := fmt.Sprintf("%d) %s", task.ID, task.Detail)
+  	return str
+  }
+  
+  func (task *Task) Finish() {
+    task.done = true
+  }
+  
+  func main() {
+  	task := NewTask(1, "Detail")
+  	fmt.Printf("%+v", task.Print())
+  }
+  ```
+  
+  
+  
+'''
 tags: []
 isStarred: false
 isTrashed: false
