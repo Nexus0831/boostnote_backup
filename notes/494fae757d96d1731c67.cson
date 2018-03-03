@@ -1,5 +1,5 @@
 createdAt: "2018-03-01T07:00:29.439Z"
-updatedAt: "2018-03-02T11:17:31.561Z"
+updatedAt: "2018-03-03T03:02:46.166Z"
 type: "MARKDOWN_NOTE"
 folder: "aeae1f50d1814c94c245"
 title: "応用構文"
@@ -117,6 +117,50 @@ content: '''
   	fmt.Printf("%+v", task.Print())
   }
   ```
+  
+  ## インターフェース
+  Goでのインターフェースは、その型がどのようなメソッドを実装するべきかを規定する役割をもつ
+  ```go
+  type Stringer interface {
+    String() string
+  }
+  ```
+  インターフェースの名前は、実装すべき関数名が単純な場合は、その関数名に`er`を付け加えた名前を付ける習慣がある。よって`String()`を実装するインターフェースは`Stringer`となる。
+  
+  ### インターフェースの実装
+  Goでは、`java`の`implements`構文のように、インターフェースを実装していることを明示的に宣言する構文はない。Goでは型がインターフェースに定義されたメソッドを実装していれば、インターフェース満たしているとする。
+  ```go
+  func Print(stringer Stringer) {
+  	fmt.Print(stringer.String())
+  }
+  
+  Print(task)
+  ```
+  `Stringer`は標準インターフェースであり、他にも代表的な標準インターフェースが存在する。
+  
+  ### interface{}
+  ```go
+  type Any interface {
+  }
+  ```
+  上記のインターフェースは実装すべきメソッドを指定していない、よって全ての型はこのインターフェースを実装していることとなる。
+  これを利用すると、次のようにどんな型も受け取ることができる関数を定義できる。
+  ```go
+  func Do(e Any) {
+    // 処理
+  }
+  ```
+  また`Any`のように定義しなくても、下記のように直接記述できる。
+  ```go
+  func Do(e interface{}) {
+    // 処理
+  }
+  ```
+  例えば`fmt.Println()`などのプリント関数はこれを用いている。
+  ```go
+  func Println(a ...interface{}) (n int, err error)
+  ```
+  
   
   
   
