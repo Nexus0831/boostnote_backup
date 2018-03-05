@@ -1,0 +1,92 @@
+createdAt: "2018-03-05T08:42:29.420Z"
+updatedAt: "2018-03-05T08:56:42.418Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "JSON"
+content: '''
+  # JSON
+  GoでJSONを扱うためには`encoding/json`パッケージを用いる。
+  主なAPIとして構造体をJSONに変換する`Marshal()`とその逆を行う`Unmarshal()`がある。
+  ```go
+  type Person struct {
+  	ID int
+  	Name string
+  	Email string
+  	Age int
+  }
+  
+  func main() {
+  	person := &Person{
+  		ID:3827,
+  		Name:"中山大悟",
+  		Email:"example@gmail.com",
+  		Age:18,
+  	}
+  	b, err := json.Marshal(person)
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  	fmt.Println(string(b)) // {"ID":3827,"Name":"中山大悟","Email":"example@gmail.com","Age":18}
+  }
+  
+  ```
+  変換されたJSONには小文字で始まるプライベートなフィールドは含まれない。
+  プライベートなフィールドも変換したければ、構造体にタグを記述する。
+  ```go
+  `json:"name"` // nameというキーで格納
+  `json:"-"` // JSONに格納しない
+  `json:",omiyempty"` // 値が空なら無視
+  `json:",string"` // 値をJSONとして格納
+  ```
+  下記がサンプル
+  ```go
+  type Person struct {
+  	ID int `json:"id"`
+  	Name string `json:"name"`
+  	Email string `json:"-"`
+  	Age int `json:"age"`
+  }
+  
+  func main() {
+  	person := &Person{
+  		ID:3827,
+  		Name:"中山大悟",
+  		Email:"example@gmail.com",
+  		Age:18,
+  	}
+  	b, err := json.Marshal(person)
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  	fmt.Println(string(b)) // {"id":3827,"name":"中山大悟","age":18}
+  }
+  ```
+  
+  ## JSONから構造体への変換
+  格納するJSONと、格納先の構造体のポインタを引数として渡すと、タグの定義に従って構造体のフィールドに値が格納される。
+  ```go
+  func main() {
+  	var person Person
+  	b := []byte(`{"id":3827,"name":"中山大悟","age":18}`)
+  	err := json.Unmarshal(b, &person)
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  	fmt.Println(person)
+  }
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

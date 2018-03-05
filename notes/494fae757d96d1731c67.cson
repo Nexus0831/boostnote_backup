@@ -1,5 +1,5 @@
 createdAt: "2018-03-01T07:00:29.439Z"
-updatedAt: "2018-03-03T03:02:46.166Z"
+updatedAt: "2018-03-04T05:06:11.811Z"
 type: "MARKDOWN_NOTE"
 folder: "aeae1f50d1814c94c245"
 title: "応用構文"
@@ -160,6 +160,131 @@ content: '''
   ```go
   func Println(a ...interface{}) (n int, err error)
   ```
+  
+  ## 型の埋め込み
+  Goでは、継承はサポートされていない。
+  代わりに他の型を **「埋め込む」(Embed)** という方式で構造体やインターフェースの振る舞いを拡張できる。
+  ```go
+  type User struct {
+  	FirstName string
+  	LastName string
+  }
+  
+  func (u *User) FullName() string {
+  	fullName := fmt.Sprintf("%s %s", u.FirstName, u.LastName)
+  	return fullName
+  }
+  
+  func NewUser(firstName, lastName string) *User {
+  	return &User {
+  		FirstName:firstName,
+  		LastName:lastName,
+  	}
+  }
+  
+  type Task struct {
+  	ID int
+  	Detail string
+  	done bool
+  	*User
+  }
+  
+  func NewTask(id int, detail, firstName, lastName string) *Task {
+  	task := &Task{
+  		ID:id,
+  		Detail:detail,
+  		done:false,
+  		User: NewUser(firstName, lastName),
+  	}
+  
+  	return task
+  }
+  
+  func main() {
+  	task := NewTask(1, "buy the milk", "大悟", "中山")
+  	fmt.Println(task.FirstName)
+  	fmt.Println(task.LastName)
+  	fmt.Println(task.FullName())
+  	fmt.Println(task.User)
+  }
+  
+  ```
+  ### インターフェースの埋め込み
+  インタフェースの埋め込みも可能であり、主な用途として複数のインタフェースを埋め込んで新たなインタフェースを定義することがある。
+  `io`パッケージでは`Reader`、`Writer`といったインタフェースが定義されている。
+  ```go
+  type Reader interface {
+    Read(p []byte) (n int, err error)
+  }
+  
+  type Writer interface {
+    Write(p []byte) (n int, err error)
+  }
+  ```
+  この時、`Read()`と`Write()`を両方定義したインタフェースである`ReadWriter`は次のように定義できる。
+  ```go
+  type ReadWriter interface {
+    Reader
+    Writer
+  }
+  ```
+  `io`パッケージには同様に、`Closer`インタフェースを埋め込んだ`ReadCloser`、`WriteCloser`、`ReadWriter Closer`なども定義されている。
+  
+  ## 型の変換(キャスト)
+  Goでは暗黙的な型変換が起こることはない。しかし型を変換できないわけではなく、明示的に変換する方法がいくつか提供されている。
+  ```go
+  var i unit8 = 3
+  var j unit32 = unit32(i) // unit8 -> unit32
+  
+  var s string = "abc"
+  var b []byte = []byte(s) // string -> []byte
+  fmt.Println(b) // [97 98 99]
+  
+  // 以下の型変換はできない
+  a := int("a")
+  ```
+  キャストに失敗した場合はパニックが発生する。
+  
+  ### 型の検査
+  インタフェース値が指定した型であるかを調べるには`Type Assertion`を使用します。
+  ```go
+  func Print(value interface{}) {
+    s, ok := value.(string) // Type Assertion
+    if ok {
+      fmt.Print("ok")    
+    } else {
+      fmt.Print("no")
+    }
+  }
+  ```
+  判定に失敗するとパニックが発生する。
+  
+  ### 型による分岐
+  `Type Assertion`は単一の型に対する検査しかできないが、`Type Switch`を使うと複数の型に対する検査を実行できる。
+  ```go
+  type Stringer interface {
+    String() string
+  }
+  
+  func Print(value interface{}) {
+    switch v := value.(type) {
+    case string:
+      fmt.Print("value is string")
+    case int:
+      fmt.Print("value is int")
+    case Stringer:
+      fmt.Printf("value is Stringer")
+    } 
+  }
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
