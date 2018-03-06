@@ -1,0 +1,88 @@
+createdAt: "2018-03-05T13:10:56.164Z"
+updatedAt: "2018-03-06T05:13:50.810Z"
+type: "MARKDOWN_NOTE"
+folder: "aeae1f50d1814c94c245"
+title: "ファイル操作"
+content: '''
+  # ファイル操作
+  ファイルの作成や取得は`os`パッケージ、書き込みや読み出し`io`パッケージを用いて。
+  
+  ## ファイルの生成
+  ```go
+  import (
+    "log"
+    "os"
+  )
+  
+  func main() {
+  	file, err := os.Create("./file.txt") // ファイル作成
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  
+  	defer file.Close()
+  }
+  ```
+  
+  ## ファイルの書き込み
+  ```go
+  message := []byte("Hello World\\n") // 書き込むデータをbyte[]で用意する。
+  
+  _, err = file.Write(message)
+  if err != nil {
+  	log.Fatal(err)
+  }
+  ```
+  毎回`[]byte`に変換しなくても`WriteString()`を利用すれば直接文字列を指定できる。
+  `WriteString()`が実装されていなければ`fmt.Fprint(file, "hello world\\n")`で代用できる。
+  `ioutil`パッケージを用いればより簡略化できる。
+  ```go
+  message := []byte("Hello World!\\n")
+  err := ioutil.WriteFile("./file.txt", message, 0666)
+  ```
+  
+  ## ファイルからの読み出し
+  ```go
+  func main() {
+  	file, err := os.Open("./file.txt")
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  
+  	defer file.Close()
+  
+  	message := make([]byte, 12) // 十分な長さのスライスを用意する。
+  
+  	_, err = file.Read(message)　// 読み出し
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  
+  	fmt.Print(string(message))
+  }
+  ```
+  `ioutil`パッケージを用いるとより簡単に読み出しができる。
+  ```go
+  // 全体の読み出し
+  file, _ := os.Open("./file.txt")
+  message, err := ioutil.ReadAll(file)
+  
+  // ファイル操作限定での簡略版
+  message, err := ioutil.ReadFile("./file.txt")
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+tags: [
+  "ファイル操作"
+]
+isStarred: false
+isTrashed: false

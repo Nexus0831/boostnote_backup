@@ -1,0 +1,49 @@
+createdAt: "2018-03-06T05:36:11.902Z"
+updatedAt: "2018-03-06T05:39:15.715Z"
+type: "MARKDOWN_NOTE"
+folder: "55949ba7939b08dec045"
+title: "Boostnote 使い方"
+content: '''
+  Boostnote 使い方
+  
+  ## フローチャート
+  ```flowchart
+  st=>start: Start:>http://www.google.com[blank]
+  e=>end:>http://www.google.com
+  op1=>operation: My Operation
+  sub1=>subroutine: My Subroutine
+  cond=>condition: Yes or No?:>http://www.google.com
+  io=>inputoutput: catch something...
+   
+  st->op1->cond
+  cond(yes)->io->e
+  cond(no)->sub1(right)->op1
+  ```
+  
+  ## シーケンス
+  ```sequence
+  Title: Here is a title
+  A->B: Normal line
+  B-->C: Dashed line
+  C->>D: Open arrow
+  D-->>A: Dashed open arrow
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+tags: [
+  "テンプレート"
+]
+isStarred: false
+isTrashed: false

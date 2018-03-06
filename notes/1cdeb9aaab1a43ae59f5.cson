@@ -1,5 +1,5 @@
 createdAt: "2018-03-05T08:42:29.420Z"
-updatedAt: "2018-03-05T08:56:42.418Z"
+updatedAt: "2018-03-06T05:01:16.875Z"
 type: "MARKDOWN_NOTE"
 folder: "aeae1f50d1814c94c245"
 title: "JSON"
@@ -76,8 +76,51 @@ content: '''
   }
   ```
   
+  ## ファイルにJSONを書き込み
+  ```go
+  person := &Person{
+  		ID:3827,
+  		Name:"中山大悟",
+  		Email:"example@gmail.com",
+  		Age:18,
+  	}
   
+  	file, err := os.Create("./person.json")
+  	if err != nil {
+  		log.Fatal(err)
+  	}
   
+  	defer file.Close()
+  
+  	encoder := json.NewEncoder(file)
+  
+  	err = encoder.Encode(person)
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  ```
+  ファイルが`.json`出ないとエラーを吐かれるので注意。
+  
+  ## ファイルからJSONを読み込み
+  ```go
+  file, err := os.Open("./person.json")
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  
+  	var person Person
+  
+  	defer file.Close()
+  
+  	decoder := json.NewDecoder(file)
+  
+  	err = decoder.Decode(&person)
+  	if err != nil {
+  		log.Fatal(err)
+  	}
+  
+  	fmt.Println(person)
+  ```
   
   
   
@@ -87,6 +130,8 @@ content: '''
   
   
 '''
-tags: []
+tags: [
+  "json"
+]
 isStarred: false
 isTrashed: false
