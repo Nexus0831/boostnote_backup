@@ -1,9 +1,11 @@
 createdAt: "2018-02-11T12:35:02.795Z"
-updatedAt: "2018-02-22T03:16:30.836Z"
+updatedAt: "2018-03-06T10:48:29.826Z"
 type: "MARKDOWN_NOTE"
 folder: "9f2303f6140476f3d2dc"
-title: "S3でhttpsのウェブホスティングをするには"
+title: "S3"
 content: '''
+  # S3
+  
   ## S3でhttpsのウェブホスティングをするには
   
   s3でhttps通信を行うにはCloudFrontを使用する必要があるが、そのCloudFrontでは自分のドメインでACM(これもAWSのサービス)から発行したSSL証明書を発行する必要があるため、お名前.comなどでのドメインの購入が必須である。

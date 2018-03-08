@@ -1,5 +1,5 @@
 createdAt: "2018-03-06T05:36:11.902Z"
-updatedAt: "2018-03-06T05:39:15.715Z"
+updatedAt: "2018-03-06T10:46:03.780Z"
 type: "MARKDOWN_NOTE"
 folder: "55949ba7939b08dec045"
 title: "Boostnote 使い方"
@@ -28,10 +28,6 @@ content: '''
   C->>D: Open arrow
   D-->>A: Dashed open arrow
   ```
-  
-  
-  
-  
   
   
   
