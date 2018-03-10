@@ -1,10 +1,10 @@
 createdAt: "2018-03-09T10:42:40.757Z"
-updatedAt: "2018-03-09T10:44:14.125Z"
+updatedAt: "2018-03-10T06:01:33.584Z"
 type: "MARKDOWN_NOTE"
 folder: "5bd68d65bb075b050a66"
-title: "GO環境"
+title: "Golang環境"
 content: '''
-  # GO環境
+  # Golang環境
   ```shell 
   go get -v golang.org/x/tools/cmd/goimports # -> gofmtの拡張コマンド
   go get -v github.com/golang/lint/golint # -> linter

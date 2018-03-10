@@ -1,0 +1,16 @@
+createdAt: "2018-03-10T06:01:35.314Z"
+updatedAt: "2018-03-10T06:03:09.502Z"
+type: "MARKDOWN_NOTE"
+folder: "5bd68d65bb075b050a66"
+title: "ruby環境"
+content: '''
+  ruby環境
+  ```shell
+  set -x PATH $HOME/.rbenv/versions/2.4.2/bin $PATH
+  gem install rsense
+  ```
+  以上のコマンドを実行後に`autocomplete-ruby`をインストール
+'''
+tags: []
+isStarred: false
+isTrashed: false
