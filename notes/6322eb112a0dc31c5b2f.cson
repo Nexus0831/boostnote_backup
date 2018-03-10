@@ -1,5 +1,5 @@
 createdAt: "2018-02-18T11:00:22.079Z"
-updatedAt: "2018-02-24T06:16:41.222Z"
+updatedAt: "2018-03-10T05:31:23.335Z"
 type: "MARKDOWN_NOTE"
 folder: "aeae1f50d1814c94c245"
 title: "goenvインストール"
@@ -8,6 +8,7 @@ content: '''
   
   ```shell
   brew install goenv 
+  set -x PATH $HOME/go/bin $PATH
   set -x PATH $HOME/.goenv/bin $PATH
   goenv install 1.9.0
   ```

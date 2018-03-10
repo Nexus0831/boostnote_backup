@@ -1,5 +1,5 @@
 createdAt: "2018-02-24T06:20:27.022Z"
-updatedAt: "2018-02-25T14:38:56.282Z"
+updatedAt: "2018-03-10T05:36:55.343Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "fish shell"
@@ -15,9 +15,14 @@ content: '''
   ## PATH設定と環境変数
   fish shellにはexportがないため`--export`か`-x`をオプションでつける。
   ```shell
+  # 一時的な追加っぽい
   set -x PATH 追加したいパス $PATH # 既存のパスの前に追加
   set -x PATH $PATH 追加したいパス # 既存のパスの後ろに追加
   set -x 環境変数名 値 # 環境変数の追加
+  
+  # 永続
+  set PATH 追加したいパス $PATH
+  set -U fish_user_paths 追加したいパス $fish_user_paths
   ```
 '''
 tags: []

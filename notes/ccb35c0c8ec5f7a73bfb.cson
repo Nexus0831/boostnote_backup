@@ -1,13 +1,13 @@
 createdAt: "2018-03-06T10:46:05.823Z"
-updatedAt: "2018-03-06T10:46:58.573Z"
+updatedAt: "2018-03-08T04:55:27.279Z"
 type: "MARKDOWN_NOTE"
 folder: "55949ba7939b08dec045"
 title: "TeX support"
 content: '''
   # TeX support
-  $$$
+  $$
   \\mathrm{e}^{\\mathrm{i}\\theta} = \\cos(\\theta) + \\mathrm{i}\\sin(\\theta)
-  $$$
+  $$
 '''
 tags: []
 isStarred: false

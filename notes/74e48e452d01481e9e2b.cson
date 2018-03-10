@@ -1,0 +1,20 @@
+createdAt: "2018-03-09T10:42:40.757Z"
+updatedAt: "2018-03-09T10:44:14.125Z"
+type: "MARKDOWN_NOTE"
+folder: "5bd68d65bb075b050a66"
+title: "GO環境"
+content: '''
+  # GO環境
+  ```shell 
+  go get -v golang.org/x/tools/cmd/goimports # -> gofmtの拡張コマンド
+  go get -v github.com/golang/lint/golint # -> linter
+  go get -v github.com/nsf/gocode # -> コード補完
+  go get -v github.com/rogpeppe/godef # -> 定義ジャンプ
+  ```
+  以上のコマンドを実行後に以下のパッケージをインストール
+  - go-plus 補完用
+  - godef 定義ジャンプ
+'''
+tags: []
+isStarred: false
+isTrashed: false

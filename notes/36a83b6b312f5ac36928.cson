@@ -1,5 +1,5 @@
 createdAt: "2018-02-24T06:21:45.417Z"
-updatedAt: "2018-03-01T15:27:57.473Z"
+updatedAt: "2018-03-08T05:28:08.065Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "コマンド"
@@ -37,6 +37,12 @@ content: '''
   
   mkdir ディレクトリ名 # ディレクトリを作成
   mkdir ディレクトリ名 -p # 途中のディレクトリが存在しない場合にそれも含めて作成
+  ```
+  
+  ## プロセス
+  ```shell
+  lsof -i :3000
+  kill -QUIT 75342
   ```
   
 '''

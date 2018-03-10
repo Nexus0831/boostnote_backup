@@ -1,5 +1,5 @@
 createdAt: "2018-03-07T12:08:52.388Z"
-updatedAt: "2018-03-07T13:39:21.570Z"
+updatedAt: "2018-03-08T08:13:54.030Z"
 type: "MARKDOWN_NOTE"
 folder: "5bd68d65bb075b050a66"
 title: "コマンド"
@@ -20,6 +20,8 @@ content: '''
   |行を指定して移動|`ctrl + G`|
   |行を上下に移動|`cmd + ctrl + up/down`|
   |ペイン分割|`cmd + Kを押した直後にup/down/left/right`|
+  |デベロッパーツール|`cmd + option + I`|
+  |Git/GitHub|`ctrl + ( / ctrl + *`|
 '''
 tags: []
 isStarred: false

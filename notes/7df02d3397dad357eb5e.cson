@@ -1,5 +1,5 @@
 createdAt: "2018-03-08T04:37:33.362Z"
-updatedAt: "2018-03-08T04:39:12.163Z"
+updatedAt: "2018-03-08T04:50:39.893Z"
 type: "MARKDOWN_NOTE"
 folder: "5bd68d65bb075b050a66"
 title: "スタイルシート"
@@ -72,6 +72,14 @@ content: '''
   
   span.stdout {
     font-size: 16px;
+  }
+  
+  li.file.entry.list-item.status-added.selected::before {
+    background-color: rgba(166, 226, 46, 1);
+  }
+  
+  li.file.entry.list-item.status-added.selected > span {
+    color: rgba(60, 87, 29, 1);
   }
   
   .vertical {
