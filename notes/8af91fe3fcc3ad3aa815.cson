@@ -1,5 +1,5 @@
 createdAt: "2018-03-07T03:56:12.508Z"
-updatedAt: "2018-03-10T05:02:02.319Z"
+updatedAt: "2018-03-10T06:10:51.060Z"
 type: "MARKDOWN_NOTE"
 folder: "6e8d84390952ff1cf5bc"
 title: "基本構文"
@@ -29,7 +29,18 @@ content: '''
   ## 文字列
   シングルクォーテーションかダブルクォーテーションで宣言。
   ダブルクォーテーションで宣言した場合式展開が可能。
+  ```ruby
+  msg = 'Hello World'
+  num = "#{2 + 5} #{msg}"
+  ```
   
+  ## 真偽値
+  偽は`false`と`nil`のみ。
+  それ以外は真。`0`も`空白("")`も真。
+  ```ruby
+  is_visible = true
+  is_visible = false
+  ```
 '''
 tags: []
 isStarred: false

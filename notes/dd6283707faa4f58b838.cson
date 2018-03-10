@@ -1,0 +1,25 @@
+createdAt: "2018-03-10T13:16:12.986Z"
+updatedAt: "2018-03-10T13:16:28.338Z"
+type: "MARKDOWN_NOTE"
+folder: "796d5842bb9d51e60090"
+title: "bash_profile"
+content: '''
+  bash_profile
+  ```shell
+  export PYENV_ROOT="$HOME/.pyenv"
+  if [ -d "${PYENV_ROOT}" ]; then
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+  fi
+  # Setting PATH for Python 3.6
+  # The original version is saved in .bash_profile.pysave
+  PATH=“/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}”
+  export PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/Users/N.daigo/.pyenv/versions/3.5.1/Python.framework/Versions/3.5/bin
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/go:$PATH"
+  if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false
