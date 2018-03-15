@@ -1,5 +1,5 @@
 createdAt: "2018-03-11T10:42:44.089Z"
-updatedAt: "2018-03-11T10:44:48.685Z"
+updatedAt: "2018-03-13T06:14:09.195Z"
 type: "MARKDOWN_NOTE"
 folder: "6e8d84390952ff1cf5bc"
 title: "bundler"
@@ -7,6 +7,28 @@ content: '''
   bundler
   
   [Bundlerの使い方 - Qiita](https://qiita.com/oshou/items/6283c2315dc7dd244aef)
+  
+  1. `bundle init`で`Gemfile`を作成する。
+  2. 次に`Gemfile`に以下を参考にインストールしたい`gem`を記述する。
+    ```ruby
+    gem "sinatra" # gem指定
+    gem 'rails', "~> 4.2.4" # バージョン指定
+    ```
+  3. `gem`を一括インストール
+    ```shell
+    bundle install --path vendor/bundle
+    ```
+    
+  4. ソースコードに以下で`rubygems`を`require`する。
+    ```ruby
+    require 'rubygems'
+    ```
+  
+  5. 実行時に`bundle exec`を使用する。
+    ```shell
+    bundle exec ruby hello.rb
+    ```
+  
 '''
 tags: [
   "パッケージ管理"

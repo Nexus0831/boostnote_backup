@@ -1,0 +1,21 @@
+createdAt: "2018-03-11T10:49:21.496Z"
+updatedAt: "2018-03-11T10:53:23.917Z"
+type: "MARKDOWN_NOTE"
+folder: "6e8d84390952ff1cf5bc"
+title: "rbenv"
+content: '''
+  rbenv
+  
+  `rbenv`でインストールした`ruby`を有効にするためには`~/.rbenv/shims`にパスを通す必要がある。
+  ```shell
+  set -U fish_user_paths $HOME/.rbenv/shims $fish_user_paths
+  ```
+  またシェルの設定ファイルに以下を記述する必要がある。
+  ```shell
+  # fish shellの場合
+  eval (rbenv init -| source)
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,5 +1,5 @@
 createdAt: "2018-03-07T03:56:12.508Z"
-updatedAt: "2018-03-10T06:10:51.060Z"
+updatedAt: "2018-03-15T14:47:31.334Z"
 type: "MARKDOWN_NOTE"
 folder: "6e8d84390952ff1cf5bc"
 title: "基本構文"
@@ -14,9 +14,15 @@ content: '''
   
   ## 変数
   英小文字の**スネークケース**で宣言。
+  `$`をつけるとグローバル変数。
+  `@`をつけるとインスタンス変数。
+  `@@`をつけるとクラス変数になる。
   ```ruby
   msg = "Hello World"
   is_visible = true
+  $global = "Global" # グローバル変数
+  @instance = "Instance" # インスタンス変数
+  @@class = "Class" # クラス変数
   ```
   
   ## 定数
@@ -34,14 +40,285 @@ content: '''
   num = "#{2 + 5} #{msg}"
   ```
   
+  ### メソッド
+  ```ruby
+  str = abcdabcd
+  str.gsub(/a/, "A") # 該当する全ての要素を置換 => AbcdAbcd
+  str.sub(/a/, "A") # 該当する最初の要素を置換 => Abcdabcd
+  str.chomp # 末尾改行文字を除外
+  str.upcase # 大文字に変換
+  str.downcase # 小文字に変換
+  str.split(" ") # 指定文字列で分割し配列にする
+  str.include?("ab") # 指定した文字列を含んでいるか確認
+  str.index("a") # 指定した文字列を含んでいれば開始位置を返す。
+  str[0] # 文字列の抽出 => a
+  str[0, 2] # => ab
+  ```
+  
   ## 真偽値
   偽は`false`と`nil`のみ。
-  それ以外は真。`0`も`空白("")`も真。
+  それ以外は真。`0`も`空白("")`も真として扱われる。
   ```ruby
   is_visible = true
   is_visible = false
   ```
+  
+  ## 配列
+  基本は`java`などと同じ
+  ```ruby
+  array = [1, 2, 3]
+  array.length # 配列の要素数をカウント
+  array.to_s # 文字列に変換
+  array.max # 配列内の最大値
+  array.min # 配列内の最小値
+  array.pop # 末尾から一要素だけ取得配列からは削除
+  array.pop(2) # 引数を指定した場合は指定した数だけ取得
+  array.empty? # 空かどうか確認
+  array.include?(10) # 指定した要素を含むか確認
+  array << 4 # 末尾に要素を追加
+  array.unshift(0) # 先頭に要素を追加
+  array.shift # 先頭要素を削除
+  array.sample # ランダムに要素取得
+  array.dup # 配列の複製
+  array.delete_at(2) # 指定したインデックスの要素削除
+  ```
+  
+  ## ハッシュ(連想配列, 辞書型)
+  注意点として文字列で入力する場合は`key`,`value`共に`""`で囲む事。
+  ### 基本
+  ```ruby
+  user = { # 宣言
+    first_name: '太郎',
+    last_name: '田中'
+  }
+  
+  user[:first_name] # 参照 => 太郎
+  user[:first_name] = '二郎' # 代入
+  user.size # サイズの取得
+  ```
+  ### 追加と削除
+  ```ruby
+  user.store(:berth, '98/12/24') # 要素追加
+  user.delete(key) # 要素の削除
+  user.delete(key) {|key| ... } # 削除する要素がなかった場合の処理
+  # キーと値ごとに判定を行い該当する要素を削除
+  user.delete_if {|key, value|
+    value == '98/12/24' # berthを削除
+  }
+  # 複製されたハッシュから要素を削除したものを返す
+  full_name = user.reject {|key, value|
+    value == '98/12/24' # berthを削除
+  }
+  ```
+  ### 繰り返し
+  ```ruby
+  # 繰り返し
+  user.each{|key, value|
+    p key
+    p value
+  }
+  
+  # キーだけ繰り返し
+  user.each_key{ |key| 
+    p key
+  }
+  
+  # 値だけを繰り返し
+  user.each_value{|value|
+    p value
+  }
+  ```
+  ### 配列に変換
+  ```ruby
+  keys = user.keys # キーを配列として取得
+  values = user.values # 値を配列として取得
+  pea = user.to_a # キーと値のペアを配列とした二次元配列を取得
+  ```
+  ### 配列から生成
+  - 一次元配列からハッシュを作成
+  `*ary`は多重代入という処理であり、配列に格納されている要素全てを代入する方法である。
+  ```ruby
+  ary = [:suzuki, 87, :itou, 76, :yamada, 69]
+  hash = Hash[*ary] 
+  ```
+  - 二次元配列からハッシュを生成
+  `flatten`で二次元配列を一次元配列に変換し多重代入
+  ```ruby
+  ary = [[:suzuki, 87], [:itou, 76], [:yamada, 69]]
+  hash = Hash[*ary.flatten]
+  ```
+  - 二つの配列からハッシュを生成
+  二つの配列から`transpose`で二次元配列を作成後、`flatten`で一次元配列を作成して多重代入
+  ```ruby
+  key_ary = [:suzuki, :itou, :yamada]
+  key_value = [87, 76, 69]
+  ary = [key_ary, key_value].transpose
+  hash = Hash[*ary.flatten]
+  ```
+  
+  ### ハッシュを空にする
+  ```ruby
+  hash.clear
+  ```
+  
+  ## シンボル
+  `:`で始まる文字列
+  ```ruby
+  msg = :hello
+  ```
+  可読性が高く、新たにオブジェクトを生成しないのでメモリの節約になる。
+  簡単な文字列参照(ハッシュのキーなど)に好んで使用される。
+  
+  ## 条件分岐
+  ### for
+  ```ruby
+  if num == 60 then
+    puts '60'
+  elsif num == 70 then
+    puts '70'
+  else
+    puts 'NO'
+  end
+  ```
+  
+  ### unless
+  `unless`はfalseの時に処理
+  ```ruby
+  unless num == 60 then
+    puts 'not 60'
+  else
+    puts 'yes 60'
+  end
+  ```
+  
+  ### case
+  `case`は多分岐の時に有効
+  ```ruby
+  case num
+  when 10 then # thenも省略可能
+    puts "10"
+  when 20
+    pust "20"
+  when 30, 40 # 複数の値していも可能
+    puts "30 or 40"
+  end
+  ```
+  
+  ### 三項演算子
+  ```ruby
+  result > 60 ? true : false
+  ```
+  
+  ## 繰り返し
+  ### while
+  条件式が`true`の間処理を繰り返す。
+  無限ループなどに使用。
+  ```ruby
+  while num < 2 do
+    p 'Hello World'
+  end
+  ```
+  
+  ### until
+  `until`は条件式が`false`の間処理を繰り返す
+  ```ruby
+  until num < 2 do
+    p 'hello world'
+  end
+  ```
+  
+  ### for
+  `ruby`の`for`文は拡張for文である。
+  `for`文で指定できるオブジェクトは配列、ハッシュ、範囲オブジェクトなどの`each`メソッドを持つオブジェクトでないといけない。
+  ```ruby
+  for num in 1..3 do
+   p num
+  end
+  ```
+  
+  #### 範囲オブジェクト
+  `1..3`のなら1から3の範囲オブジェクトになる。
+  `1...3`なら最後の値は含まれない。
+  `'a'..'c'`なら`a, b, c`の様にアルファベット順で表示される。
+  `Range`クラスの`new`メソッドでも生成できる
+  ``` ruby
+  range1 = Range.new(5, 10) # 5..10
+  range2 = Range.new(5, 10, true) # 5...10
+  ```
+  
+  ### each
+  `for`よりも`each`が好まれる傾向がある。
+  ```ruby
+  range = 5..10
+  range.each{|num|
+    p num
+  }
+  
+  range.each do |num|
+    p num
+  end
+  ```
+  
+  ### times
+  `integer`クラスで用意されているメソッド。
+  変数に`0`から対象のオブジェクトの持つ数値-1を順に代入しながら行う。
+  ```ruby
+  10.times do |n|
+    puts n # 0 ~ 9まで
+  end
+  ```
+  
+  ### upto
+  `integer`クラスに用意されているメソッド。
+  変数に対象のオブジェクトの持つ数値から`max`に順に加算代入しながら処理を繰り返す。
+  ```ruby
+  3.upto(7) do |n|
+    puts n # 3 ~ 7まで
+  end
+  ```
+  
+  ### downto
+  `integer`クラスに用意されているメソッド。
+  変数に対象のオブジェクトの持つ数値から`min`を順に減算代入しながら処理を繰り返す。
+  ```ruby
+  7.downto(3) do |n|
+    puts n # 7 ~ 3まで
+  end
+  ```
+  
+  ### step
+  `Numeric`クラスで用意されているメソッド。
+  `Integer(整数)`クラスや`Float(小数)`クラスに対してこれらのメソッドを実行する。
+  ```ruby
+  2.4.step(5.3, 0.8) do |n|
+    puts n # 2.4, 3.2, 4.0, 4.8
+  end
+  ```
+  
+  ### loop
+  無限ループを行うメソッド。
+  `Kernel`クラスのメソッドであるため組み込み関数として利用できる。
+  ```ruby
+  loop {
+    print("Hello World\\n")
+  }
+  ```
+  
+  ### break, next, redo
+  `break`はそのブロックを抜ける(ループを抜ける)
+  `next`は次の繰り返しに進む(スキップ)
+  `redo`は今実行している繰り返しを改めて初めから行います。
+  
+  
+  
+  
+  
+  
+  
+  
 '''
-tags: []
+tags: [
+  "基本構文"
+]
 isStarred: false
 isTrashed: false

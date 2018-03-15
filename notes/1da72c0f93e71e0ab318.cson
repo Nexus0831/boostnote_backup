@@ -3,12 +3,13 @@ folder: "b1ab926b1b9c987ba6fb"
 title: "気になること"
 content: '''
   # 気になること
-  CUIに絵文字を出力できる
-  UUID
-  jetbrainsのgitignoreプラグイン
+  - [x] CUIに絵文字を出力できる
+  - [x] UUID
+  - [ ] jetbrainsのgitignoreプラグイン
+  - [ ] 変換指定文字列
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-09-20T14:09:02.890Z"
-updatedAt: "2018-02-12T11:29:24.431Z"
+updatedAt: "2018-03-13T21:39:30.784Z"

@@ -1,0 +1,27 @@
+createdAt: "2018-03-11T11:28:04.700Z"
+updatedAt: "2018-03-12T12:12:47.215Z"
+type: "MARKDOWN_NOTE"
+folder: "6e8d84390952ff1cf5bc"
+title: "テクニック"
+content: '''
+  テクニック
+  
+  ## 拡張forよりeachが好まれる
+  ```ruby
+  for i in 15..20
+    p i
+  end
+  ```
+  よりも`each`メソッドを利用した
+  ```ruby
+  range = 15..20
+  
+  range.each do |i|
+    p i
+  end
+  ```
+  の方が好まれる。
+'''
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,16 @@
+createdAt: "2018-03-14T07:37:47.187Z"
+updatedAt: "2018-03-14T07:40:44.535Z"
+type: "MARKDOWN_NOTE"
+folder: "6e8d84390952ff1cf5bc"
+title: "コーディングスタイル"
+content: '''
+  ## コーディングスタイル
+  
+  [初めの参考](https://github.com/cookpad/styleguide/blob/master/ruby.ja.md)
+  [慣れてきたら](https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md)
+'''
+tags: [
+  "スタイル"
+]
+isStarred: false
+isTrashed: false
