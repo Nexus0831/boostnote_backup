@@ -1,0 +1,16 @@
+createdAt: "2018-03-18T15:21:15.928Z"
+updatedAt: "2018-03-18T19:39:10.310Z"
+type: "MARKDOWN_NOTE"
+folder: "df02bf0efe6ef807a581"
+title: "pyenv"
+content: '''
+  pyenv 
+  
+  ## バージョンが切り替わらない時
+  ホームディレクトリに`.python-version`ファイルが存在すると切り替わらない。
+  
+  ### `.pyenv/shims`にパスを通す
+'''
+tags: []
+isStarred: false
+isTrashed: false

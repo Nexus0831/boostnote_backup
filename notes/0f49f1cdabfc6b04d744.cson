@@ -1,13 +1,16 @@
 createdAt: "2018-03-18T15:05:16.455Z"
-updatedAt: "2018-03-18T15:06:00.121Z"
+updatedAt: "2018-03-18T19:31:59.528Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "未解決"
 content: '''
   未解決
   
+  ## brew関連
   - [ ] fish_shellでの`alias`の追加
 '''
-tags: []
+tags: [
+  "問題"
+]
 isStarred: false
 isTrashed: false
