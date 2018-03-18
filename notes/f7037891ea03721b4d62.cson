@@ -1,0 +1,26 @@
+createdAt: "2018-03-15T17:28:09.073Z"
+updatedAt: "2018-03-15T17:38:46.023Z"
+type: "MARKDOWN_NOTE"
+folder: "9f2303f6140476f3d2dc"
+title: "aws cli"
+content: '''
+  # aws cli
+  
+  ## インストール
+  ```shell
+  brew install awscli
+  ```
+  以上でインストール
+  
+  ## 初期設定
+  ```shell
+  AWS Access Key ID [None]: アクセスキー
+  AWS Secret Access Key [None]: シークレットキー 
+  Default region name [None]: ap-northeast-1
+  Default output format [None]: JSON
+  ```
+  シークレットキーは[IAMページ](https://console.aws.amazon.com/iam/home?#security_credential)で新しくアクセスキーを作成した時しか入手できないので注意。
+'''
+tags: []
+isStarred: false
+isTrashed: false
