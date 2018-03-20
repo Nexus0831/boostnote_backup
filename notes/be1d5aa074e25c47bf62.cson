@@ -1,0 +1,32 @@
+createdAt: "2018-03-20T13:22:34.639Z"
+updatedAt: "2018-03-20T13:43:33.535Z"
+type: "MARKDOWN_NOTE"
+folder: "e2ebfb508792821cf8cc"
+title: "ndenv&anyenv"
+content: '''
+  # ndenv&anyenv
+  
+  まずは`anyenv`をインストール
+  ```shell
+  git clone https://github.com/riywo/anyenv ~/.anyenv
+  ```
+  `$HOME/.anyenv/bin`にパスを通して
+  `config.fish`に以下を記述
+  ```shell
+  eval (anyenv init -| source)
+  ```
+  `ndenv`をインストール
+  ```shell
+  anyenv install ndenv
+  ```
+  あとは`pyenv`とかと一緒
+  
+  PS: なんか`ndenv init`がうまくいかないので断念した...
+  `node`のバージョン管理は必要になった時にすることにする。
+'''
+tags: [
+  "ndenv"
+  "anyenv"
+]
+isStarred: false
+isTrashed: false
