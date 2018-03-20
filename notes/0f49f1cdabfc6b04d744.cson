@@ -1,5 +1,5 @@
 createdAt: "2018-03-18T15:05:16.455Z"
-updatedAt: "2018-03-18T19:31:59.528Z"
+updatedAt: "2018-03-20T07:09:34.036Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "未解決"
@@ -8,6 +8,7 @@ content: '''
   
   ## brew関連
   - [ ] fish_shellでの`alias`の追加
+    pythonは仮想環境で動かすのでとりあえず`.pyenv/shims`へのパスを削除して対応
 '''
 tags: [
   "問題"

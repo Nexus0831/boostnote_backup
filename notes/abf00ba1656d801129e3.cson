@@ -1,16 +1,29 @@
 createdAt: "2018-03-18T15:21:15.928Z"
-updatedAt: "2018-03-18T19:39:10.310Z"
+updatedAt: "2018-03-20T08:16:04.912Z"
 type: "MARKDOWN_NOTE"
 folder: "df02bf0efe6ef807a581"
-title: "pyenv"
+title: "pyenvでの問題"
 content: '''
-  pyenv 
+  pyenvでの問題
   
   ## バージョンが切り替わらない時
   ホームディレクトリに`.python-version`ファイルが存在すると切り替わらない。
+  - `.pyenv/shims`にパスを通す
   
-  ### `.pyenv/shims`にパスを通す
+  ## fishでのpyenvとpyenv-virtualenvの整備2018/3/20
+  まずは`brew upgrade`でパッケージを更新。
+  `fisher pyenv`でプラグインをインストール。
+  `status --is-interactive; and source (pyenv init -|psub)`を入力して実行。
+  `status --is-interactive; and source (pyenv virtualenv-init -|psub)`を入力して実行。
+  上記のやり方では一時的だっため下記の方法が**自動化**となる。
+  `~/.config/fish/config.fish`に下記を記述
+  ```shell
+  eval (pyenv init -| source)
+  eval (pyenv virtualenv-init -| source)
+  ```
 '''
-tags: []
+tags: [
+  "pyenv"
+]
 isStarred: false
 isTrashed: false

@@ -1,0 +1,17 @@
+createdAt: "2018-03-20T08:08:18.117Z"
+updatedAt: "2018-03-20T08:10:09.598Z"
+type: "MARKDOWN_NOTE"
+folder: "df02bf0efe6ef807a581"
+title: "pyenv&pyenv-virtualenvの使い方"
+content: '''
+  pyenv&pyenv-virtualenvの使い方
+  
+  ```shell
+  pyenv activate scraping # 仮想環境を有効化
+  pyenv local 仮想環境名 # 仮想環境有効化
+  pyenv deactivate scraping # 仮想環境を無効化
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false
