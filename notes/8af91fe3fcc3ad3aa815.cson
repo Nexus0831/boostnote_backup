@@ -1,5 +1,5 @@
 createdAt: "2018-03-07T03:56:12.508Z"
-updatedAt: "2018-03-18T10:37:38.573Z"
+updatedAt: "2018-04-23T02:06:56.193Z"
 type: "MARKDOWN_NOTE"
 folder: "6e8d84390952ff1cf5bc"
 title: "基本構文"
@@ -11,6 +11,8 @@ content: '''
   # コメント
   print "Hello World"
   ```
+  
+  ----
   
   ## 変数
   英小文字の**スネークケース**で宣言。
@@ -25,6 +27,8 @@ content: '''
   @@class = "Class" # クラス変数
   ```
   
+  ---- 
+  
   ## 定数
   英大文字の**スネークケース**で宣言。
   ただし代入はでき、実行時に警告が出るだけなので気をつける。
@@ -33,12 +37,73 @@ content: '''
   ```
   特別な**組み込み定数**も存在する。
   
-  ## 文字列
+  ## 数値(Numeric)
+  - 数値を扱う抽象クラス。
+  - サブクラスとして`Integer(抽象クラス)`と`Float`がある
+  - `Integer`にはサブクラスとして`Fixnum`と`Bignum`がある
+  ### 明示的な宣言
+  ```ruby
+  Integer.induced_from(12)
+  Float.induced_from(12)
+  ```
+  
+  ### 数値クラスを変換
+  ```ruby
+  num = 10.to_f # IntegerをFloatに変更
+  
+  num = 12.67.to_i # 小数点以下切り捨てでFloatをIntegerに変更
+  num = 12.67.truncate # to_iと同じ
+  num = 12.67.round # 小数点以下四捨五入
+  num = 10.3.ceil # 小数点以下切り上げ
+  num = 10.3.floor # 小数点以下切り下げ
+  ```
+  
+  ### 文字列に変換
+  ```ruby
+  str = 12.to_s
+  str = 12.to_s(2) # 2進数で文字列変換(1100)
+  str = 12.to_s(16) # 16進数で文字列変換(c)
+  ```
+  
+  ### 文字コードに対応する文字を取得する
+  ```ruby
+  str = 68.chr # D
+  ```
+  
+  ### 商と剰余
+  `/`や`%`の他にも`div()`や`quo()`を利用する方法がある
+  ```ruby
+  num = 10.div(3) # 3
+  num = 10.quo(3) # 3.333333333...
+  ```
+  `/`、`div()`、`quo()`には違いがある。
+  - `div()`は必ず結果を**整数**で返す。
+  - `quo()`は必ず結果を**浮動小数点数**で返す
+  - `/`は両方の値が整数の時のみ**整数**で返し、それ以外は**浮動小数点数**
+  
+  ### 絶対値
+  ```ruby
+  num = (-5).abs
+  ```
+  
+  ----
+  
+  ## 文字列(String)
   シングルクォーテーションかダブルクォーテーションで宣言。
   ダブルクォーテーションで宣言した場合式展開が可能。
   ```ruby
   msg = 'Hello World'
   num = "#{2 + 5} #{msg}"
+  
+  msg = 'Good!' * 3 # Good!を3つ連結
+  msg << 'Hello' # 左辺の末尾に右辺を追加
+  msg.concat('World') # 上記と同じ
+  
+  # ヒアドキュメント
+  <<'id'
+  Hello
+  World
+  id
   ```
   
   ### メソッド
@@ -46,7 +111,10 @@ content: '''
   str = abcdabcd
   str.gsub(/a/, "A") # 該当する全ての要素を置換 => AbcdAbcd
   str.sub(/a/, "A") # 該当する最初の要素を置換 => Abcdabcd
+  str.insert(1, 'o') # 指定した位置に文字列を挿入
+  str.delete('a') # 指定した文字列が含まれていれば全て削除 => bcdbcd
   str.chomp # 末尾改行文字を除外
+  str.strip # 空白文字を削除
   str.upcase # 大文字に変換
   str.downcase # 小文字に変換
   str.split(" ") # 指定文字列で分割し配列にする
@@ -56,6 +124,8 @@ content: '''
   str[0, 2] # => ab
   ```
   
+  ----
+  
   ## 真偽値
   偽は`false`と`nil`のみ。
   それ以外は真。`0`も`空白("")`も真として扱われる。
@@ -63,6 +133,8 @@ content: '''
   is_visible = true
   is_visible = false
   ```
+  
+  ----
   
   ## 配列
   基本は`java`などと同じ
@@ -83,6 +155,8 @@ content: '''
   array.dup # 配列の複製
   array.delete_at(2) # 指定したインデックスの要素削除
   ```
+  
+  ----
   
   ## ハッシュ(連想配列, 辞書型)
   注意点として文字列で入力する場合は`key`,`value`共に`""`で囲む事。
@@ -114,7 +188,7 @@ content: '''
   ### 繰り返し
   ```ruby
   # 繰り返し
-  user.each{|key, value|
+  user.each{ |key, value|
     p key
     p value
   }
@@ -125,7 +199,7 @@ content: '''
   }
   
   # 値だけを繰り返し
-  user.each_value{|value|
+  user.each_value{ |value|
     p value
   }
   ```
@@ -135,7 +209,7 @@ content: '''
   values = user.values # 値を配列として取得
   pea = user.to_a # キーと値のペアを配列とした二次元配列を取得
   ```
-  ### 配列から生成
+  ### 配列から生成(多重代入)
   - 一次元配列からハッシュを作成
   `*ary`は多重代入という処理であり、配列に格納されている要素全てを代入する方法である。
   ```ruby
@@ -161,6 +235,8 @@ content: '''
   ```ruby
   hash.clear
   ```
+  
+  ----
   
   ## シンボル
   `:`で始まる文字列
@@ -310,7 +386,357 @@ content: '''
   `next`は次の繰り返しに進む(スキップ)
   `redo`は今実行している繰り返しを改めて初めから行います。
   
+  ----
+  
   ## メソッド
+  ### 定義
+  ```ruby
+  def メソッド名(引数1, 引数2)
+    実行する内容
+  end
+  ```
+  メソッド名の規則
+  - １文字目は`英文字`か`_`
+  - ２文字目以降は`英数文字`か`_`
+  
+  ### 呼び出し
+  ```ruby
+  オブジェクト.メソッド名(引数1, 引数2)
+  ```
+  クラスから作成されるオブジェクト(レシーバー)に対して実行したいメソッド指定して呼び出す。
+  トップレベルメソッドはレシーバーを省略できる(`print`など)
+  
+  ### 変数の扱い
+  メソッドの引数はコピーではなく実態が渡される。
+  そのため、メソッド内で引数の変数に変更を行なった場合は実際に変更されてしまう。
+  ```ruby
+  def add_string(str)
+    str << ',Japan'
+  end
+  
+  address = 'Tokyo'
+  print(address) # Tokyo
+  
+  add_string(address)
+  print(address) # Tokyo,Japan
+  ```
+  ### 引数のデフォルト値
+  引数には`デフォルト値`が設定可能であり、メソッドを呼び出す際に引数が指定されなければデフォルト値が代入され処理が実行される。
+  ```ruby
+  def print_hello(msg='No msg', name='No name')
+    print(msg + ", " + name)
+  end
+  ```
+  デフォルト値は引数全てに設定する必要はなく一部だけも可能。
+  ただし、デフォルト値を設定した引数**以降**の引数にもデフォルト値が必須になる。
+  
+  ### 引数を配列で受け取る。
+  引数の最後に`*`をつけると余った引数を配列で受け取ることができる。
+  ```ruby
+  def print_hello(msg, name, *names)
+    print(msg + ', ' + names)
+  end
+  ```
+  引数が余らなかった場合でも空のオブジェクトとして生成される。
+  
+  ### 戻り値
+  `return`で戻り値を返す。
+  `return`は省略化のであり最後に評価した式を自動的に返す。
+  ただし、できれば明示的に書いた方が良い。
+  ```ruby
+  def sum(a, b)
+    return a + b
+  end
+  
+  def sum(a, b)
+    a + b
+  end
+  ```
+  
+  ### 複数の戻り値を返す。
+  配列オブジェクトを利用することで複数の戻り値を返すことができる。
+  ```ruby
+  def add_string(str)
+    add_str1 = str + ',Japan'
+    add_str2 = str + ',Asia'
+    
+    return [add_str1, add_str2]
+  end
+  ```
+  多重代入を利用すれば複数の変数の戻り値を一度に代入できる。
+  ```ruby
+  def add_string(str)
+    add_str1 = str + ',Japan'
+    add_str2 = str + ',Asia'
+    
+    return [add_str1, add_str2]
+  end
+  
+  str = 'Tokyo'
+  
+  japan, asia = add_string(str)
+  ```
+  
+  ----
+  
+  ## クラスの概念
+  ### 定義とオブジェクト生成
+  - クラス名はアッパーキャメルケースで記述。
+  - クラスからオブジェクトを作るには`new`メソッドを使う。
+  ```ruby
+  class クラス名
+  
+  end
+  
+  変数名 = クラス名.new() # インスタンス生成
+  ```
+  
+  ### インスタンスメソッド
+  - メソッド名はスネークケースで記述。
+  - 引数のないメソッドの`()`は省略できる。
+  - メソッドの呼び出しには`.`の代わりに`::`も使えるが違いはないため、統一性を重視する。
+  ```ruby
+  class Car
+    def disp_classname
+      print("Car class\\n")
+    end
+  
+    def disp_string(str)
+      print(str, "\\n")
+    end
+  end
+  
+  car = Car.new()
+  car.disp_classname
+  car.disp_string("crown")
+  
+  car::disp_classname
+  car::disp_string("crown")
+  ```
+  
+  ### インスタンス変数
+  - 変数名は`@`で始めて、スネークケースで記述。
+  ```ruby
+  class Car
+    @name = 'crown'
+  end
+  ```
+  
+  ### initializeメソッド
+  - オブジェクトが生成される際に自動的に呼び出される。
+  - 引数には初期値を設定できる。
+  ```ruby
+  class Car
+    def initialize(car_name)
+      @name = car_name
+    end
+  end
+  
+  car = Car.new('crown')
+  ```
+  
+  ### アクセスメソッド
+  - インスタンス変数はクラス外からは参照と変更ができない。
+  - アクセスメソッドを用意することで参照と変更を許容する。
+  |定義式|機能|
+  |---|---|
+  |`attr_reader :変数名`|参照が可能|
+  |`attr_writer :変数名`|更新が可能|
+  |`attr_accessor :変数名`|参照と更新が可能|
+  
+  ```ruby
+  class Car
+    def initialize(car_name)
+      @name = car_name
+    end
+    
+    attr_reader :name
+    attr_writer :name
+    attr_accessor :name
+  end
+  ```
+  
+  ### 定数
+  - クラス内で定数を定義できる。
+  - 変数名に`@`は必要ない
+  - `::`でクラス外参照ができる
+  ```ruby
+  class Car
+    NAME = 'clown'
+  end
+  
+  puts Car::NAME
+  ```
+  
+  ### クラス変数
+  - `@@`で始まりスネークケースで記述。
+  - 現在はactive_supportの`class_attribute`を使用するのが良い
+  - active_supportは`gem`でインストールされている。
+  ```ruby
+  class Car
+    @@name = 'crown'
+  end
+  ```
+  
+  ----
+  
+  ## クラスの継承
+  ```ruby
+  class クラス名 < 親クラス
+    
+  end
+  ```
+  ### メソッドのオーバーライド
+  `Java`の言語と同じように同名で宣言
+  
+  ### 親クラスのメソッドを呼ぶ
+  - サブクラスでオーバーライドした場合に、親クラスの方のメソッドを呼ぶ際に使用する。
+  - 引数がある場合には`super`に引数をつけられる。
+  - `super`の引数は省略もできるが、可読性が悪くなるため好ましくない。
+  ```ruby
+  class Soarer < Car
+    def brake
+      super
+      print('停止')
+    end
+    
+    def accele(accele_item)
+      super(accele_item)
+      print('加速')
+    end
+  end
+  ```
+  上記の場合、親クラスの`brake`が呼ばれた後に`print`が実行される。
+  
+  ## アクセス制御
+  `Java`と同じように`public`もしくは`private`でアクセスを制御する。
+  - クラス内で使用するものに`private`
+  - 上記以外は`public`。
+  - `initialize`は常に`initialize`
+  ```ruby
+  class Car
+    def accele
+      print('アクセルを踏みました')
+    end
+    
+    public :accele
+    
+    def brake
+      print('ブレーキを踏みました')
+    end
+    
+    private :brake
+  end
+  ```
+  また`public`だけと記述すると、それ以降のメソッドは`public`になる。
+  こちらの方が望ましい。
+  ```ruby
+  class Car
+    public
+    
+    def accele
+      print('加速')
+    end
+    
+    def brake
+      print('停止')
+    end
+    
+    private
+    
+    def calc_speed
+      print('計測')
+    end
+  end
+  ```
+  
+  ----
+  
+  ## モジュール
+  - モジュール名はアッパーキャメルケースで記述
+  - クラスと同じくメソッドを定義できる。
+  - クラス変数に当たるものはないが定数は定義できる。
+  ```ruby
+  module モジュール名
+    
+  end
+  ```
+  ### 関数のように使う
+  モジュールを関数のように扱うには設定が必要になる。
+  ```ruby
+  module SuuchiModule
+    def min_value(x, y)
+      if x < y
+        return x
+      else
+        return y
+    end
+    
+    module_function :min_value
+  end
+  
+  print(SuuchiModule.min_value)
+  ```
+  
+  ### インクルード
+  インクルードした場合にはメソッド名のみで実行できる。
+  ```ruby
+  module SuuchiModule
+    def min_value(x, y)
+      if x < y
+        return x
+      else
+        return y
+    end
+    
+    module_function :min_value
+  end
+  
+  include SuuchiModule
+  print(min_value(10, 8), '\\n')
+  ```
+  
+  ### クラスにインクルード(Mix-in)
+  この方法を`Ruby`では`Mix-in`と読んでいる。
+  ```ruby
+  module SuuchiModule
+    def min_value(x, y)
+      if x < y
+        return x
+      else
+        return y
+    end
+    
+    module_function :min_value
+  end
+  
+  class Test
+    include SuuchiModule
+    
+    def disp_value(x, y)
+      min = min_value(x, y)
+      print(min)
+    end
+  end
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

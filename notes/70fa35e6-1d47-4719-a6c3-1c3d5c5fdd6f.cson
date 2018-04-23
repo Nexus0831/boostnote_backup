@@ -1,0 +1,35 @@
+createdAt: "2018-04-13T11:07:40.633Z"
+updatedAt: "2018-04-13T11:20:25.108Z"
+type: "MARKDOWN_NOTE"
+folder: "1c46d39ad9f3cb432f79"
+title: "テクニック"
+content: '''
+  # テクニック
+  
+  ## スクリプトの実行方法
+  URLを直接指定するだけではない。
+  ```html
+  <form action="kcgArray2.php">
+  <input type="submit" value="kcgArray2を表示">
+  </form>
+  ```
+  でも実行できる。
+  
+  ## データの送受信
+  ブラウザから送られてきたデータは`GET`なら`$_GET`連想配列に、`POST`なら`$_POST`連想配列に格納される。
+  ```PHP
+  <?php
+      echo($_POST["username"]);
+  ?>
+  ```
+  `GET`はURLに`?データ名=値&データ名=値`。
+  ### 留意点
+  受け取るデータの型は文字列のため数字などは**型変換**してやらないといけない。
+  また日本語のデータをPOSTで送受信する際は、文字コードを`metaタグ`で統一する必要がある。
+  ```html
+  <meta charset="utf-8">
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

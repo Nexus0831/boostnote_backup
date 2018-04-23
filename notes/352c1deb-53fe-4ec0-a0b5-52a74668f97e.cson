@@ -1,0 +1,72 @@
+createdAt: "2018-04-22T07:58:29.583Z"
+updatedAt: "2018-04-22T14:48:29.008Z"
+type: "MARKDOWN_NOTE"
+folder: "6e8d84390952ff1cf5bc"
+title: "標準ライブラリ(クラス)"
+content: '''
+  # 標準ライブラリ(クラス)
+  
+  ## 数値(Numeric)クラス
+  - 数値を扱う抽象クラス。
+  - サブクラスとして`Integer(抽象クラス)`と`Float`がある
+  - `Integer`にはサブクラスとして`Fixnum`と`Bignum`がある
+  ### 明示的な宣言
+  ```ruby
+  Integer.induced_from(12)
+  Float.induced_from(12)
+  ```
+  
+  ### 数値クラスを変換
+  ```ruby
+  num = 10.to_f # IntegerをFloatに変更
+  
+  num = 12.67.to_i # 小数点以下切り捨てでFloatをIntegerに変更
+  num = 12.67.truncate # to_iと同じ
+  num = 12.67.round # 小数点以下四捨五入
+  num = 10.3.ceil # 小数点以下切り上げ
+  num = 10.3.floor # 小数点以下切り下げ
+  ```
+  
+  ### 文字列に変換
+  ```ruby
+  str = 12.to_s
+  str = 12.to_s(2) # 2進数で文字列変換(1100)
+  str = 12.to_s(16) # 16進数で文字列変換(c)
+  ```
+  
+  ### 文字コードに対応する文字を取得する
+  ```ruby
+  str = 68.chr # D
+  ```
+  
+  ### 商と剰余
+  `/`や`%`の他にも`div()`や`quo()`を利用する方法がある
+  ```ruby
+  num = 10.div(3) # 3
+  num = 10.quo(3) # 3.333333333...
+  ```
+  `/`、`div()`、`quo()`には違いがある。
+  - `div()`は必ず結果を**整数**で返す。
+  - `quo()`は必ず結果を**浮動小数点数**で返す
+  - `/`は両方の値が整数の時のみ**整数**で返し、それ以外は**浮動小数点数**
+  
+  ### 絶対値
+  ```ruby
+  num = (-5).abs
+  ```
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

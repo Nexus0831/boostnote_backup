@@ -1,0 +1,15 @@
+createdAt: "2018-04-17T04:28:08.499Z"
+updatedAt: "2018-04-17T06:52:51.513Z"
+type: "MARKDOWN_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "iosアプリ開発1(授業)"
+content: '''
+  # iosアプリ開発1(授業)
+  
+  ## 第一回
+  シュミレータでピンチするにはオプションキーを押しながらドラッグ。
+  始めのstorybordにある矢印はここからアプリを始めるという意味。
+'''
+tags: []
+isStarred: false
+isTrashed: false

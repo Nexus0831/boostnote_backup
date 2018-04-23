@@ -1,5 +1,5 @@
 createdAt: "2018-03-20T13:22:34.639Z"
-updatedAt: "2018-03-20T13:43:33.535Z"
+updatedAt: "2018-03-20T14:00:43.514Z"
 type: "MARKDOWN_NOTE"
 folder: "e2ebfb508792821cf8cc"
 title: "ndenv&anyenv"
@@ -22,6 +22,8 @@ content: '''
   あとは`pyenv`とかと一緒
   
   PS: なんか`ndenv init`がうまくいかないので断念した...
+  一応`anyenv`は`ndenv`を`uninstall`してそのまま残す。
+  `brew`で`ndenv`はインストールしておいた。`node-bundle`みたいなのも一緒に入った。
   `node`のバージョン管理は必要になった時にすることにする。
 '''
 tags: [

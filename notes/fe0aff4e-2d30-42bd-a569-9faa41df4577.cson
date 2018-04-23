@@ -1,0 +1,40 @@
+createdAt: "2018-04-11T04:46:41.724Z"
+updatedAt: "2018-04-11T07:11:33.827Z"
+type: "MARKDOWN_NOTE"
+folder: "1c46d39ad9f3cb432f79"
+title: "PHP実習（授業）"
+content: '''
+  # PHP実習（授業）
+  [リファレンスマニュアル](http://php.net/manual/ja/index.php)
+  [関数リファレンス](http://php.net/manual/ja/function.phpinfo.php)
+  
+  # 第一回(htmlの復習と変数)
+  ファイルパス:`~/PHP/php01/`
+  ```PHP
+  <?php  phpinfo(); ?>
+  ```
+  文末には`;`が必要。
+  上記の組み込み関数で実行環境のデータを見られる。
+  
+  ## CMS(コンテンツ・マネジメント・システム)
+  - ブログ，掲示板，Wikiなど，Webサイトのコンテンツ管理をWebブラウザから行なう
+  - WordPress，EC-CUBEなど多数
+  
+  ## 変数
+  - `$`で始まる英数字もしくは`_`。
+  - 最初の文字は数字以外、英数字が望ましい。
+  - 大文字小文字を区別する。
+  - 型宣言は不要
+  - 文字列の中に数字を埋め込める。
+  
+  ```PHP
+  <?php
+    $message = "どうも、PHP!";
+    echo("<h1>".$message."</h1>");
+  ?>
+  ```
+  文字列と変数は`.`で繋げる。
+'''
+tags: []
+isStarred: false
+isTrashed: false
