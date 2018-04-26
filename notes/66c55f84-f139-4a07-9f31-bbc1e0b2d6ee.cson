@@ -1,0 +1,28 @@
+createdAt: "2018-04-25T15:16:50.167Z"
+updatedAt: "2018-04-25T15:44:33.957Z"
+type: "MARKDOWN_NOTE"
+folder: "e2ebfb508792821cf8cc"
+title: "nodebrew"
+content: '''
+  # nodebrew
+  ## インストール
+  ```shell
+  cd /usr/local/lib
+  sudo npm uninstall npm
+  brew uninstall --ignore-dependencies node
+  brew install nodebrew
+  nodebrew setup
+  set -U fish_user_paths $HOME/.nodebrew/current/bin $fish_user_paths
+  ```
+  
+  ## 書き置き
+  `/usr/local/lib/node_modules`はそのまま残しているので何か問題があれば確認よろ。
+  
+  ## コマンド参考
+  [nodebrewでよく使うコマンド - Qiita](https://qiita.com/suisuina/items/c5c4e4b9f55a8615a542)
+'''
+tags: [
+  "パッケージ管理"
+]
+isStarred: false
+isTrashed: false

@@ -1,0 +1,89 @@
+createdAt: "2018-04-25T10:30:30.139Z"
+updatedAt: "2018-04-26T05:43:18.186Z"
+type: "MARKDOWN_NOTE"
+folder: "1c46d39ad9f3cb432f79"
+title: "PHP関数"
+content: '''
+  # PHP関数
+  このドキュメントでは以下の書式で記述する
+  ```php
+  戻り値の型　メソッド名(引数の型 仮変数名)
+  ```
+  ## 文字型関数
+  |関数|処理|
+  |---|---|
+  |`boolean ctype_alpha(string text)`|引数の文字列が英字だけであれば`TRUE`|
+  |`boolean ctype_alnum(string text)`|引数の文字列が英数字だけであれば`TRUE`を返す|
+  |`boolean ctype_digit(string text)`|引数の文字列が数字だけであれば`TRUE`を返す|
+  |`boolean ctype_upper(string text)`|引数の文字列が大文字だけであれば`TRUE`を返す|
+  |`boolean ctype_lower(string text)`|引数の文字列が小文字だけであれば`TRUE`を返す|
+  
+  ## 文字列関数
+  |関数|処理|
+  |---|---|
+  |`int strlen(string string)`|引数の文字列の長さをバイト数で取得。半角１文字で１カウント、全角で２カウント|
+  |`int mb_strlen(string str)`|引数の文字列の長さを文字数で取得する|
+  |`string mb_substr(string str, int start, int length)`|指定した位置から指定した長さの文字列を取得する。`length`を指定しない場合、開始指定位置から最後まで取得する。|
+  |`string str_replace(string search, string replace, string subject)`|`subject`の中から`search`が含まれていれば`search`の部分を`replace`に置き換える|
+  |`string n12br(string string)`|文字列の改行文字の前に`<br />`を挿入|
+  |`string mb_convert_encoding(string str, string to_encoding, string from_encoding)`|文字列のエンコードを変換する|
+  |
+  
+  ## 変数操作関数
+  |関数|処理
+  |---|---|
+  |`string gettype(mixed var)`|引数の変数の型名を返す|
+  |`boolean is_numeric(mixed var)`|引数が数値であれば`TRUE`を返す|
+  |`boolean is_bool(mixed var)`|引数が`boolean型`であれば`TRUE`を返す|
+  |`boolean is_float(mixed var)`|引数が`浮動小数点型`であれば`TRUE`を返す|
+  |`boolean is_int(mixed var)`|引数が`int型`であれば`TRUE`を返す|
+  |`boolean in_string(mixed var)`|引数が文字列型であれば`TRUE`を返す|
+  |`boolean is_null(mixed var)`|引数が`NULL`なら`TRUE`を返す|
+  |`boolean isset(mixed var)`|引数が存在指定れば`TRUE`を返す。引数はいくつ書いても構わない|
+  
+  ## 配列関数
+  |関数|処理|
+  |---|---|
+  |`bool in_array(mixed needle, array haystack)`|配列に`needle`が含まれていれば`TRUE`を返す|
+  |`mixed array_search(mixed needle, array haystack, bool strict)`|配列に`needle`が含まれていればキーを返す。型も同じか調べるときは`strict`を`TRUE`にする|
+  |`array array_unique(array array)`|配列から重複を取り除く|
+  |`int count(mixed var)`|配列の項目数を取得する|
+  ### 連想配列に含まれるキーごとに変数を作成
+  ```
+  int extract(array var_array, int extract_type, string prefix)
+  ```
+  `var_array`のキーを変数名、値を変数の値として変数を作成する。
+  すでに同名の変数があった場合、の処理を`extract_type`で指定する。
+  `prefix`は第二引数で変数にプレフィックスを付ける際に使用する。
+  以下が処理方法。
+  |処理名|処理|
+  |---|---|
+  |EXTR_OVERWRITE|既に存在していた場合、存在する変数が上書きされます。|
+  |EXTR_SKIP|既に存在していた場合、存在する変数は上書きされません。|
+  |EXTR_PREFIX_SAME|既に存在していた場合、prefix を前につけた 新しい変数となります。|
+  |EXTR_PREFIX_ALL|全ての変数の前に prefix を付けます。|
+  |EXTR_PREFIX_INVALID|無効または数値の変数名のみに接頭辞 prefix を付ける。|
+  |EXTR_IF_EXISTS|既に存在している変数のみ、上書きして作成します。|
+  |EXTR_PREFIX_IF_EXISTS|既に存在している変数のみ、プレフィックスを付けて作成します。|
+  |EXTR_REFS|変数を参照として展開します。|
+  
+  ## 乱数
+  ```
+  int mt_rand(min, max)
+  ```
+  通常の`rand`よりも数倍高速に動作する。
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

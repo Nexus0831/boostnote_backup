@@ -1,5 +1,5 @@
 createdAt: "2018-04-13T10:45:37.738Z"
-updatedAt: "2018-04-16T01:35:57.675Z"
+updatedAt: "2018-04-24T05:38:32.476Z"
 type: "MARKDOWN_NOTE"
 folder: "1c46d39ad9f3cb432f79"
 title: "基本構文"
@@ -110,11 +110,24 @@ content: '''
   $intDate = (int)"12";
   ```
   
+  ----
+  
   ## 配列
   ```PHP
   <?php
     $kcg = array("鴨川", "京都駅前", "洛北");
     echo("<h1>".$kcg[0]."</h1>");
+  ?>
+  ```
+  
+  ----
+  
+  ### 多次元配列
+  ```php
+  <?php
+    $odd = array(1, 3, 5, 7, 9);
+    $even = array(2, 4, 6, 8);
+    $nums = array($odd, $even);
   ?>
   ```
   
@@ -127,6 +140,8 @@ content: '''
   ?>
   ```
   
+  ----
+  
   ## 乱数
   `rand()`を使用する。
   第一引数にはランダムに生成したい範囲の最小値。
@@ -136,6 +151,8 @@ content: '''
     echo rand(0, 2);
   ?>
   ```
+  
+  ----
   
   ## 現在の年月日を取得する
   `getdate()`を利用して連想配列で取得する。
@@ -149,14 +166,114 @@ content: '''
   ?>
   ```
   
+  ----
   
+  ## 条件分岐
+  `Java`と同じ
   
+  ---
   
+  ## 繰り返し
+  ほとんど`Java`と同じ、違うものだけ特記する。
   
+  ### foreach（配列）
+  `Java`の拡張for文と同じ
+  ```php
+  <?php
+    $nums = array(1, 2, 3);
+    foreach ($nums as $num) {
+      print $num;
+    }
+    
+    # 配列の値を変更したい場合
+    foreach ($nums as &$num) {
+      $num += 1;
+    }
+  ?>
+  ```
   
+  ### foreach（連想配列）
+  ```php
+  <?php
+    $pref_list = array('Tokyo' => '東京', 'Osaka' => '大阪');
+    
+    foreach ($pref_list as $key => $value) {
+      print $key.'=>'.$value;
+    }
+  ?>
+  ```
   
+  ---
   
+  ## 関数
+  ```php
+  <?php
+    function add($x, $y) {
+      return $x + $y;
+    }
+  ?>
+  ```
   
+  ----
+  
+  ## クラス
+  ```php
+  <?php
+    class Car {
+    }
+    
+    $car = new Car();
+  ?>
+  ```
+  
+  ### メンバ変数とメンバメソッド
+  ```php
+  <?php
+    class Car {
+      public $car_name;
+      
+      function disp_name($name) {
+        $this->car_name = $name;
+        print $this->carname; # クラス内でメンバ変数にアクセス
+      }
+    }
+    
+    $car = new Car();
+    $car->car_name = 'ベンツ'; # メンバ変数にアクセス
+    $car->disp_name('セダン'); # メンバメソッドを実行
+  ?>
+  ```
+  
+  ### アクセス装飾子
+  |アクセス装飾子|アクセス権|
+  |---|---|
+  |`public`|クラス内外どこからでもアクセス可能|
+  |`private`|同じクラス内からのみアクセス可能|
+  |`protected`|同じクラス、サブクラスからアクセス可能|
+  
+  ### クラス内の定数
+  クラス内で定数を宣言するには`const`を使う
+  - selfはオブジェクトごとではなくクラスごとのアクセスに使う。
+  ```php
+  <?php
+    class Car() {
+      const TYPE = 'スポーツカー';
+      
+      function disp_type() {
+        print self::TYPE;
+      }
+    }
+  ?>
+  ```
+  
+  ### コンストラクタ
+  ```php
+  <?php
+    function __construct($name) {
+      $this->car_name = $name;
+    }
+  ?>
+  ```
   
   
   

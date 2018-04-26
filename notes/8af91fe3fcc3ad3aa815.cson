@@ -1,5 +1,5 @@
 createdAt: "2018-03-07T03:56:12.508Z"
-updatedAt: "2018-04-23T02:06:56.193Z"
+updatedAt: "2018-04-23T07:12:17.971Z"
 type: "MARKDOWN_NOTE"
 folder: "6e8d84390952ff1cf5bc"
 title: "基本構文"
@@ -100,10 +100,10 @@ content: '''
   msg.concat('World') # 上記と同じ
   
   # ヒアドキュメント
-  <<'id'
+  <<'ID'
   Hello
   World
-  id
+  ID
   ```
   
   ### メソッド
@@ -152,8 +152,13 @@ content: '''
   array.unshift(0) # 先頭に要素を追加
   array.shift # 先頭要素を削除
   array.sample # ランダムに要素取得
+  array.compact # nilを取り除いた配列を返す。
   array.dup # 配列の複製
   array.delete_at(2) # 指定したインデックスの要素削除
+  array.delete(2) # 指定した値と等しい要素を削除
+  array.reverse # 逆順に並び替える。
+  array.sort # 要素をソートする。
+  
   ```
   
   ----

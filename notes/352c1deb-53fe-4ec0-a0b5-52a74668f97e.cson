@@ -1,64 +1,80 @@
 createdAt: "2018-04-22T07:58:29.583Z"
-updatedAt: "2018-04-22T14:48:29.008Z"
+updatedAt: "2018-04-24T04:54:16.762Z"
 type: "MARKDOWN_NOTE"
 folder: "6e8d84390952ff1cf5bc"
 title: "標準ライブラリ(クラス)"
 content: '''
   # 標準ライブラリ(クラス)
+  [リファレンス](https://docs.ruby-lang.org/ja/2.1.0/library/_builtin.html)
   
-  ## 数値(Numeric)クラス
-  - 数値を扱う抽象クラス。
-  - サブクラスとして`Integer(抽象クラス)`と`Float`がある
-  - `Integer`にはサブクラスとして`Fixnum`と`Bignum`がある
-  ### 明示的な宣言
+  ## Timeクラス
   ```ruby
-  Integer.induced_from(12)
-  Float.induced_from(12)
+  time = Time.new() 
+  time = Time.now() # 現在時刻のTimeオブジェクト
+  ```
+  ### メソッド
+  ```ruby
+  time.sec # 秒
+  time.min # 分
+  time.hour # 時
+  time.mday # 日
+  time.day # mdayと同じ
+  time.mon # 月
+  time.month # monと同じ
+  time.year # 年
+  time.wday # 曜日を0(日曜日)~6(土曜日)で取得
+  time.yday # 1月1日からの通算日を整数で取得
+  time.isdst # 夏時間があるならtrue
+  time.dat? # isdatと同じ
+  time.zone # タイムゾーンを表す文字列
   ```
   
-  ### 数値クラスを変換
+  ### 指定の日時で作成
+  `Time.local`メソッドを利用する。
+  引数全てを指定しても`wday` `yday` `zone`の値は設定しても無視される。
   ```ruby
-  num = 10.to_f # IntegerをFloatに変更
+  Time.local(year[, mon[, day[, hour[, min[, sec[, usec]]]]]])
+  Time.local(sec, min, hour, mday, mon, year, wday, yday, isdst, zone)
   
-  num = 12.67.to_i # 小数点以下切り捨てでFloatをIntegerに変更
-  num = 12.67.truncate # to_iと同じ
-  num = 12.67.round # 小数点以下四捨五入
-  num = 10.3.ceil # 小数点以下切り上げ
-  num = 10.3.floor # 小数点以下切り下げ
+  Time.local(2007) # 2007年1月1日のTimeオブジェクトが生成される
+  ```
+  協定時間時の`Time`クラスのオブジェクトを取得する方法もある。
+  ```ruby
+  Time.gm(year[, mon[, day[, hour[, min[, sec[, usec]]]]]])
+  Time.gm(sec, min, hour, mday, mon, year, wday, yday, isdst, zone)
+  
+  Time.utc(year[, mon[, day[, hour[, min[, sec[, usec]]]]]])
+  Time.utc(sec, min, hour, mday, mon, year, wday, yday, isdst, zone)
   ```
   
-  ### 文字列に変換
+  ### フォーマット
   ```ruby
-  str = 12.to_s
-  str = 12.to_s(2) # 2進数で文字列変換(1100)
-  str = 12.to_s(16) # 16進数で文字列変換(c)
+  str = Time.strftime("現在時刻 %H時 %M分 %S秒")
   ```
-  
-  ### 文字コードに対応する文字を取得する
-  ```ruby
-  str = 68.chr # D
-  ```
-  
-  ### 商と剰余
-  `/`や`%`の他にも`div()`や`quo()`を利用する方法がある
-  ```ruby
-  num = 10.div(3) # 3
-  num = 10.quo(3) # 3.333333333...
-  ```
-  `/`、`div()`、`quo()`には違いがある。
-  - `div()`は必ず結果を**整数**で返す。
-  - `quo()`は必ず結果を**浮動小数点数**で返す
-  - `/`は両方の値が整数の時のみ**整数**で返し、それ以外は**浮動小数点数**
-  
-  ### 絶対値
-  ```ruby
-  num = (-5).abs
-  ```
-  
-  
-  
-  
-  
+  |フォーマット文字列|出力形式|
+  |---|---|
+  |%A	|曜日の名称(Sunday, Monday ... )|
+  |%a	|曜日の省略名(Sun, Mon ... )|
+  |%B	|月の名称(January, February ... )|
+  |%b	|月の省略名(Jan, Feb ... )|
+  |%c	|日付と時刻|
+  |%d	|日(01-31)|
+  |%H	|24時間制の時(00-23)|
+  |%I	|12時間制の時(01-12)|
+  |%j	|年中の通算日(001-366)|
+  |%M	|分(00-59)|
+  |%m	|月を表す数字(01-12)|
+  |%p	|午前または午後(AM,PM)|
+  |%S	|秒(00-60) (60はうるう秒)|
+  |%U	|週を表す数。最初の日曜日が第1週の始まり(00-53)|
+  |%W	|週を表す数。最初の月曜日が第1週の始まり(00-53)|
+  |%w	|曜日を表す数。日曜日が0(0-6)|
+  |%X	|時刻|
+  |%x	|日付|
+  |%Y	|西暦を表す数|
+  |%y	|西暦の下2桁(00-99)|
+  |%Z	|タイムゾーン|
+  |%%	|%自身|
   
   
   
@@ -67,6 +83,8 @@ content: '''
   
   
 '''
-tags: []
+tags: [
+  "ライブラリ"
+]
 isStarred: false
 isTrashed: false
