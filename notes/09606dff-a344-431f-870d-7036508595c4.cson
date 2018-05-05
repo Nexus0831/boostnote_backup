@@ -1,5 +1,5 @@
 createdAt: "2018-04-13T10:45:37.738Z"
-updatedAt: "2018-04-24T05:38:32.476Z"
+updatedAt: "2018-05-02T08:17:48.840Z"
 type: "MARKDOWN_NOTE"
 folder: "1c46d39ad9f3cb432f79"
 title: "基本構文"
@@ -45,7 +45,7 @@ content: '''
   ```
   
   #### print
-  `echo`と違い複数の引数しか持たない。
+  `echo`と違い複数の引数を持たない。
   ```PHP
   <?php
     print 'Hello World!'

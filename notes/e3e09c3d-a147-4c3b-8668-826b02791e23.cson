@@ -1,5 +1,5 @@
 createdAt: "2018-04-25T01:18:04.922Z"
-updatedAt: "2018-04-25T04:41:13.599Z"
+updatedAt: "2018-05-03T09:20:25.820Z"
 type: "MARKDOWN_NOTE"
 folder: "681ce933dcb605096030"
 title: "Web技術概論"
@@ -7,7 +7,7 @@ content: '''
   # Web技術概論
   
   # 第一回
-  - [ ] 個人用Webページ申請をしておくこと。king-lms -> 統合情報システム室ページで申請
+  - [x] 個人用Webページ申請をしておくこと。king-lms -> 統合情報システム室ページで申請
   
   - 1990年末、CERNのTim Berner-LeeがNeXTマシン上に世界初のWebサーバを構築した。
   - 1991年８月には最初のWebサイトが世界に公開された。

@@ -1,0 +1,18 @@
+createdAt: "2018-05-01T12:28:17.468Z"
+updatedAt: "2018-05-03T09:23:46.547Z"
+type: "MARKDOWN_NOTE"
+folder: "181da85b3ed75a0506ca"
+title: "環境整備"
+content: '''
+  # 環境整備
+  - Materialテーマにした
+  - SublimeCodeIntelで自動補完(PHP, Rubyは設定他も必要に応じて設定を追加)
+  - SublimeLinter
+  - PHPのLinterを追加
+  - RubyのLinter兼規約チェックのrubocopも導入
+  - その他オススメのパッケージも追加
+  - goSublime, sublimeLinter-contrib-gometalintを導入
+'''
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,69 @@
+createdAt: "2018-04-29T11:49:41.387Z"
+updatedAt: "2018-04-29T12:01:01.526Z"
+type: "SNIPPET_NOTE"
+folder: "e2ebfb508792821cf8cc"
+title: "ESLintの備忘録"
+description: "ESLintの備忘録"
+snippets: [
+  {
+    name: "eslintrc.json"
+    mode: "JSON"
+    content: '''
+      {
+        "parser": "babel-eslint",
+        "env": {
+          "browser": true,
+          "commonjs": true,
+          "es6": true,
+          "jest/globals": true
+        },
+        "parserOptions": {
+          "ecmaVersion": 2015,
+          "sourceType": "module",
+          "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+          }
+        },
+        "globals": {
+          "$": true,
+          "FB": true
+        },
+        "plugins": [
+          "jest"
+        ],
+        "extends": "airbnb",
+        "rules": {
+          "react/prefer-stateless-function": 0,
+          "arrow-body-style": 0,
+          "comma-dangle": 0,
+          "no-underscore-dangle": 0,
+          "import/no-named-as-default": 0,
+          "import/no-named-as-default-member": 0,
+          "import/prefer-default-export": 0,
+          "react/require-default-props": 0,
+          "no-console": [1, { "allow": ["warn", "error", "log", "info"] }], // consoleオブジェクトに警告をだす。
+          "camelcase": [2, {"properties": "never"}], // 定数とプロパティ名以外をキャメルケースに固定
+          "no-unused-vars": [1, { "vars": "all", "args": "after-used" }], // 未使用の変数、関数、関数のパラメータに警告を出す。
+          "class-methods-use-this": [0, { "exceptMethods": ["foo"] }],
+          "react/forbid-prop-types": 0,
+          "react/no-danger": 0,
+          "react/no-array-index-key": 0,
+          "react/jsx-no-target-blank": 0,
+          "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // ファイルの拡張子に.jsxと.jsを許可する。
+          "jsx-a11y/anchor-has-content": 0,
+          "jsx-a11y/no-static-element-interactions": 0,
+          "jest/no-disabled-tests": "warn", // 無効なテストを許可しない
+          "jest/no-focused-tests": "error", // 集中テストを禁止する
+          "jest/no-identical-title": "error", // 同一タイトルを許可しない
+          "jest/valid-expect": "error", // 有効なexpect()の使用を強制する
+          "jsx-a11y/href-no-hash": 0,
+          "import/first": 0
+        }
+      }
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

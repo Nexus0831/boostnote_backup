@@ -1,0 +1,85 @@
+{
+  "folders": [
+    {
+      "key": "b1ab926b1b9c987ba6fb",
+      "color": "#1278BD",
+      "name": "Default"
+    },
+    {
+      "key": "df02bf0efe6ef807a581",
+      "color": "#3FD941",
+      "name": "Python"
+    },
+    {
+      "key": "184ba01b44b8b6cf4b4f",
+      "color": "#E10051",
+      "name": "Java"
+    },
+    {
+      "key": "e2ebfb508792821cf8cc",
+      "color": "#30D5C8",
+      "name": "javascript"
+    },
+    {
+      "key": "9f2303f6140476f3d2dc",
+      "color": "#FF8E00",
+      "name": "AWS"
+    },
+    {
+      "key": "aeae1f50d1814c94c245",
+      "color": "#E10051",
+      "name": "Go"
+    },
+    {
+      "key": "2e9c919c5cb80334496b",
+      "color": "#E8D252",
+      "name": "Scala"
+    },
+    {
+      "key": "6e8d84390952ff1cf5bc",
+      "color": "#30D5C8",
+      "name": "Ruby"
+    },
+    {
+      "key": "796d5842bb9d51e60090",
+      "color": "#2BA5F7",
+      "name": "shell"
+    },
+    {
+      "key": "55949ba7939b08dec045",
+      "color": "#30D5C8",
+      "name": "共通"
+    },
+    {
+      "key": "f97ba47d6d7b9ad394ec",
+      "color": "#FF8E00",
+      "name": "デザイン"
+    },
+    {
+      "key": "5bd68d65bb075b050a66",
+      "color": "#3FD941",
+      "name": "Atom"
+    },
+    {
+      "key": "1c46d39ad9f3cb432f79",
+      "color": "#30D5C8",
+      "name": "PHP"
+    },
+    {
+      "key": "b137b4b21d4f9bfac0e4",
+      "color": "#3FD941",
+      "name": "ios"
+    },
+    {
+      "key": "681ce933dcb605096030",
+      "color": "#3FD941",
+      "name": "授業"
+    },
+    {
+      "key": "181da85b3ed75a0506ca",
+      "color": "#E10051",
+      "name": "SublimeText"
+    }
+  ],
+  "version": "1.0"
+}
