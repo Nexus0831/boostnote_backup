@@ -1,0 +1,26 @@
+createdAt: "2018-05-16T23:32:41.398Z"
+updatedAt: "2018-05-17T06:17:21.904Z"
+type: "MARKDOWN_NOTE"
+folder: "e43f1f83e05a304f33f8"
+title: "インストール"
+content: '''
+  # インストール
+  `stack`を使うのでインストール
+  ```shell:fish
+  brew install haskell-stack
+  stack setup
+  stack install hindent stylish-haskell
+  set -U fish_user_paths $HOME/.local/bin $fish_user_paths
+  ```
+  インストールがクソ長いのでイライラ注意
+  
+  # IDE
+  `Intellij-haskell`を使用。
+  設定で`hindent`と`stylish-haskell`のパスを設定。
+  初期設定がクソ長いので注意。
+'''
+tags: [
+  "インストール"
+]
+isStarred: false
+isTrashed: false

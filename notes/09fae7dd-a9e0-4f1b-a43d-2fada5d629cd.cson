@@ -1,0 +1,15 @@
+createdAt: "2018-05-22T09:07:46.982Z"
+updatedAt: "2018-05-22T09:11:02.077Z"
+type: "MARKDOWN_NOTE"
+folder: "435d60fdf5c5d0380352"
+title: "CentOS"
+content: '''
+  # CentOS
+  ```shell
+  docker run -it --rm centos
+  ```
+  以上のコマンドで実行。
+'''
+tags: []
+isStarred: false
+isTrashed: false

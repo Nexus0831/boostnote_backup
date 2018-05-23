@@ -10,9 +10,11 @@ content: '''
   - [ ] macにtomcat
   - [ ] システム設計演習のツール
   - [ ] intellijでscene builder
+  - [ ] [loopback(Web API作成ツール)](https://docs.strongloop.com/display/JA/LoopBack)
+  - [ ] [Swagger(Web APIドキュメント作成ツール)](https://swagger.io/)
 '''
 tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-09-20T14:09:02.890Z"
-updatedAt: "2018-04-12T06:38:14.708Z"
+updatedAt: "2018-05-15T10:30:00.492Z"

@@ -1,5 +1,5 @@
 createdAt: "2018-03-18T15:05:16.455Z"
-updatedAt: "2018-04-06T06:46:11.989Z"
+updatedAt: "2018-05-15T10:25:27.282Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "未解決"
@@ -8,7 +8,7 @@ content: '''
   
   ## brew関連
   - [x] fish_shellでの`alias`の追加
-    ```shell
+    ```shell:config.fish
     function brew
       set -l index (contains -i $HOME/.pyenv/shims $PATH)
       set PATH[$index] /bin # /bin is dummy

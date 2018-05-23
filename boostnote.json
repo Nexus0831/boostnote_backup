@@ -79,6 +79,21 @@
       "key": "181da85b3ed75a0506ca",
       "color": "#E10051",
       "name": "SublimeText"
+    },
+    {
+      "key": "7e2bb3c3722208362868",
+      "color": "#2BA5F7",
+      "name": "Unity"
+    },
+    {
+      "key": "e43f1f83e05a304f33f8",
+      "color": "#E10051",
+      "name": "Haskell"
+    },
+    {
+      "key": "435d60fdf5c5d0380352",
+      "color": "#2BA5F7",
+      "name": "Docker"
     }
   ],
   "version": "1.0"

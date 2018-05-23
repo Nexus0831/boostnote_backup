@@ -1,0 +1,60 @@
+createdAt: "2018-05-22T08:27:41.789Z"
+updatedAt: "2018-05-22T09:10:53.812Z"
+type: "MARKDOWN_NOTE"
+folder: "435d60fdf5c5d0380352"
+title: "Nginx"
+content: '''
+  # Nginx
+  ```shell:fish
+  docker pull nginx
+  ```
+  で`image`をダウンロード
+  - `image`名だけのものは公式
+  - `username/image`のものは非公式
+  - `-d`オプションはデーモン化（バックグラウンドで実行）
+  - `--rm`オプションを付けて`run`するとゴミが残らない
+  
+  ## 実行
+  ```shell:fish
+  docker run --rm -d -p 8080:80 -v (pwd)/html:/usr/share/nginx/html --name webserver nginx
+  ```
+  ### ボリュームをマウント
+  ```shell
+  -v (pwd)/html:/usr/share/nginx/html
+  -v ローカルの絶対パス:コンテナの絶対パス
+  ```
+  
+  ## 全てのプロセスをストップ
+  ```shell
+  docker stop (docker ps -aq) 
+  ```
+  
+  ## 汚物を消毒
+  コンテナをストップしてもゴミが残るので以下のコマンドで削除
+  ```shell
+  docker rm (docker ps -aq)
+  ```
+  `()`内のはコマンドを組み合わせている。
+  
+  ## 停止したコンテナを再開
+  コンテナで行った変更は新しく`run`すると消えてしまうため。
+  前回の状態で再開したいときは`start`を使う。
+  ```shell
+  docker start -i コンテナID
+  ```
+  
+  ## 状態を保存
+  コンテナの変更を保存したいときは以下のコマンドを使用
+  ```shell
+  docker commit $ID user_name/container_name
+  ```
+  このコマンドでイメージとして保存される。
+  
+  
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

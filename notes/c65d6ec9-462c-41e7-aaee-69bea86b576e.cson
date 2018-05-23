@@ -1,0 +1,32 @@
+createdAt: "2018-05-22T09:30:38.230Z"
+updatedAt: "2018-05-22T09:34:24.051Z"
+type: "MARKDOWN_NOTE"
+folder: "435d60fdf5c5d0380352"
+title: "Docker-Compose"
+content: '''
+  # Docker-Compose
+  複数のコンテナを上から順に一気に立ち上げる。
+  ```yml:docker-compose.yml
+  version: '3'
+  services:
+    webserver:
+      image: nginx
+      ports:
+        - "8080:80"
+      volumes:
+        - ./html:/usr/share/nginx/html
+      container_name: webserver
+  ```
+  
+  ## 実行
+  `docker-compose.yml`のあるディレクトリでコマンドを実行
+  ```shell
+  docker-compose up -d
+  ```
+  
+  ## 停止
+  通常のdockerコンテナと同じ
+'''
+tags: []
+isStarred: false
+isTrashed: false
