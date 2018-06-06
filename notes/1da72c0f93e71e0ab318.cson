@@ -6,10 +6,10 @@ content: '''
   - [x] CUIに絵文字を出力できる
   - [x] UUID
   - [ ] jetbrainsのgitignoreプラグイン
-  - [ ] 変換指定文字列
-  - [ ] macにtomcat
-  - [ ] システム設計演習のツール
-  - [ ] intellijでscene builder
+  - [x] 変換指定文字列
+  - [x] macにtomcat
+  - [x] システム設計演習のツール
+  - [x] intellijでscene builder
   - [ ] [loopback(Web API作成ツール)](https://docs.strongloop.com/display/JA/LoopBack)
   - [ ] [Swagger(Web APIドキュメント作成ツール)](https://swagger.io/)
 '''
@@ -17,4 +17,4 @@ tags: []
 isStarred: false
 isTrashed: false
 createdAt: "2017-09-20T14:09:02.890Z"
-updatedAt: "2018-05-15T10:30:00.492Z"
+updatedAt: "2018-05-26T05:16:27.412Z"

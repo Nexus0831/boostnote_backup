@@ -1,0 +1,34 @@
+createdAt: "2018-06-02T14:09:54.023Z"
+updatedAt: "2018-06-04T07:28:35.076Z"
+type: "MARKDOWN_NOTE"
+folder: "e2ebfb508792821cf8cc"
+title: "yarn"
+content: '''
+  # yarn
+  
+  ## 本体のアップグレード
+  ```shell:fish
+  npm i -g yarn
+  ```
+  
+  ## package.jsonのバージョンを更新
+  ```shell:fish
+  yarn version
+  yarn version v1.7.0
+  info Current version: 1.8.0 <- 現在のバージョン
+  question New version: 0.1.0 <- 新しいバージョン
+  info New version: 0.1.0 <- 新しいバージョン
+  ```
+  このコマンドで開発中のアプリのバージョンの更新ができる。
+  同時に`v0.1.0`のようなメッセージ形式でgitコミットもしてくれる。
+  yarn本体のバージョンに関わるものではない
+  
+  ## パッケージのアップグレード
+  ```shell:fish
+  yarn upgrade # package.jsonのバージョンに基づいて更新
+  yarn upgrade --latest # package.jsonのバージョンを無視して更新
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,195 @@
+createdAt: "2018-05-29T05:03:37.189Z"
+updatedAt: "2018-06-02T00:33:00.309Z"
+type: "SNIPPET_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "Swift授業"
+description: "Swift授業"
+snippets: [
+  {
+    name: "20180529.swift"
+    mode: "Swift"
+    content: '''
+      //: Playground - noun: a place where people can play
+      // 配列と辞書
+      import UIKit
+      
+      var str = "Hello, Array"
+      
+      // 配列の定義
+      let integers = [1, 2, 3]
+      
+      // 配列を型指定で定義
+      let ints: [Int] = [1, 2, 3]
+      
+      // 配列の比較
+      integers == ints
+      
+      // 要素を取得
+      integers[0]
+      
+      // 空の配列は型を指定して宣言する
+      let empty: [Int] = []
+      empty.isEmpty // 空かどうか調べる
+      
+      let scores = [Int](repeating: 100, count: 40)
+      let categories = [String](repeating: "未分類", count: 3)
+      
+      // [Int]はArray<Int>と同じ
+      // 調べる場合はArray<Int>で調べる
+      
+      integers.count // 要素数を取得
+      integers.first! // 先頭の要素を取得
+      integers.last! // 末尾の要素を取得
+      integers[0...] // レンジを使用して取得
+      
+      // 拡張for文
+      for n in integers {
+        print(n)
+      }
+      
+      // 添字も取得するfor文
+      for (i, n) in integers.enumerated() {
+        print("\\(i): \\(n)")
+      }
+      
+      // forEach文
+      integers.forEach{ n in print(n) }
+      integers.forEach{ print($0) }
+      
+      integers.contains(2) // 指定した要素が存在すればtrueを返す
+      integers.index(of: 2) // 指定した要素があれば添字をなければnilを返す
+      
+      let numbers = [1, 5, 9, 3, 7]
+      numbers.min() // 最小値を取得
+      numbers.max() // 最大値を取得
+      
+      // {}内の式に合致する値を最も先頭の要素を返す
+      print(integers.first { $0 < 2 }!)
+      
+      let ilove = ["I", "love"]
+      let you = ["you", "."]
+      // 配列の連結
+      let iLoveYou = ilove + you
+      
+      // map
+      integers.map { n in n * 3 }.forEach{ print($0) }
+      // integers本体は変更されない
+      integers.forEach{ print($0) }
+      // mapの結果が欲しければ変数に格納する
+      let doubles = integers.map { $0 * 2 }
+      doubles.forEach{ print($0) }
+      
+      // filter
+      integers.filter{ $0 % 2 == 1 }.forEach{ print($0) }
+      // sort
+      numbers.sorted()
+      // reversedは破壊的メソッド
+      numbers.reversed()
+      
+      print(iLoveYou.joined())
+      print(iLoveYou.joined(separator: " "))
+      
+      var nums = [1, 2, 3, 4]
+      nums[2] = 9
+      nums.append(0) // 要素の追加
+      nums.insert(8, at: 1) // atで指定した位置に挿入
+      nums.remove(at: 2) // 指定した添字の要素を削除 削除した要素を返す
+      nums.count
+      nums.removeFirst() // 先頭を削除
+      nums.removeLast() // 末尾を削除
+    '''
+  }
+  {
+    name: "20180515.swift"
+    mode: "Swift"
+    content: '''
+      //: Playground - noun: a place where people can play
+      
+      import UIKit
+      
+      var str = "Hello Closure"
+      
+      // "(Int) -> Int"がこのクロージャの型
+      // クロージャは1行で書いた場合にreturnを省略できる。
+      let double = { (x: Int) -> Int in
+          x * 2
+      }
+      
+      double(4)
+      
+      let funcX: (Int) -> Int
+      funcX = { (x: Int) -> Int in
+        return x + 1
+      }
+      
+      let double2 = { (x: Int) -> Int in
+        print("input: \\(x)")
+        return x * 2
+      }
+      
+      double2(4)
+      
+      // クロージャを使用する例
+      // 型には(引数の型) -> 戻り値の型で指定する。
+      func funcY(num: Int,
+                 closure: (Int) -> Int) {
+        print(closure(num))
+      }
+      
+      funcY(num: 3, closure: double)
+      
+      let plus1 = {(x: Int) -> Int in
+        x + 1
+      }
+      
+      funcY(num: 3, closure: plus1)
+      
+      var closure: (String) -> Int
+      
+      //closure = { (str: String) -> Int in
+      //    return str.count
+      //}
+      //
+      //closure("ABC")
+      
+      closure = { str in
+        return str.count
+      }
+      closure("あべしっ！")
+      
+      func funcZ(_ str: String,
+                 _ closure: (String) -> Int) -> Int {
+        return closure(str)
+      }
+      
+      //funcZ("abc", closure)
+      // ()はvoidと同値
+      let count = funcZ("abc", { str in
+        return str.count
+      })
+      
+      print(count)
+      
+      var greet: (String) -> String
+      var symbol = "!"
+      func greeting(name: String) -> String {
+        return "Hello\\(symbol) \\(name)"
+      }
+      
+      do {
+        let symbol = "!!!!!!!!!!!!"
+        greet = { "Hello\\(symbol) \\($0)" }
+      }
+      
+      symbol = "?"
+      
+      greeting(name: "柿本人麻呂")
+      greet("永谷園")
+      
+      [1, 2, 3, 4, 5].filter { $0 % 2 == 0 }.forEach { print($0) }
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

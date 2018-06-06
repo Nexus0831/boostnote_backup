@@ -94,6 +94,11 @@
       "key": "435d60fdf5c5d0380352",
       "color": "#2BA5F7",
       "name": "Docker"
+    },
+    {
+      "key": "34af9ebfb84cf50e70ae",
+      "color": "#FF8E00",
+      "name": "Security"
     }
   ],
   "version": "1.0"

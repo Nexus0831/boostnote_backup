@@ -1,0 +1,25 @@
+createdAt: "2018-06-04T07:08:18.178Z"
+updatedAt: "2018-06-04T07:12:52.206Z"
+type: "MARKDOWN_NOTE"
+folder: "e2ebfb508792821cf8cc"
+title: "styled-components"
+content: '''
+  # styled-components
+  
+  ## v3系統の予測
+  ```Javascript:styled-components
+  const MyButton = styled(Button)({
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
+  });
+  ```
+  `v2系統`のように` `` `で囲むのでなく`({})`で囲んでいる場合は、継承したコンポーネントのスタイルをリセットしてから`CSS`の適用を行うものと推測される。
+'''
+tags: []
+isStarred: false
+isTrashed: false
