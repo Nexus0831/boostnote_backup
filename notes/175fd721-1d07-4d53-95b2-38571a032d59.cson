@@ -1,0 +1,16 @@
+createdAt: "2018-06-29T09:13:09.351Z"
+updatedAt: "2018-06-29T09:51:29.073Z"
+type: "MARKDOWN_NOTE"
+folder: "df02bf0efe6ef807a581"
+title: "戒め"
+content: '''
+  # 戒め
+  - Pythonで標準ライブラリと同じ名前のクラスを作ってはいけない。
+  
+  ## random事件
+  `random.py`と言う名前のファイルを自分で作り`random_lits.py`と言う名前にレファクタリングした結果。
+  大元の`random.py`が変更されてしまいバグった。
+'''
+tags: []
+isStarred: false
+isTrashed: false

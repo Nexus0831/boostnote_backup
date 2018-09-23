@@ -1,0 +1,25 @@
+createdAt: "2018-06-30T00:22:14.750Z"
+updatedAt: "2018-06-30T00:26:09.271Z"
+type: "MARKDOWN_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "データ保存の選択肢"
+content: '''
+  ## データ保存の選択肢
+  - UserDefaults
+    - Key-Valueで実装。主に設定などに使用
+  
+  - Core Data
+    - レコード形式で保存。大量のデータを扱う時に使用
+  
+  - KeyChain
+    - セキュアなエリアにデータを保存。重要なデータ（パスワードなど）の保存に。
+  
+  - iCloud
+    - サーバ上にデータを保存
+  
+  - Realm
+    - オープンソース
+'''
+tags: []
+isStarred: false
+isTrashed: false

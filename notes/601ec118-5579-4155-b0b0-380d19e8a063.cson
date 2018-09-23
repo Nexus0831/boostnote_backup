@@ -1,0 +1,19 @@
+createdAt: "2018-09-11T04:40:42.231Z"
+updatedAt: "2018-09-12T08:18:38.280Z"
+type: "MARKDOWN_NOTE"
+folder: "6440e39f32acc755b8c6"
+title: "コマンド"
+content: '''
+  # コマンド
+  
+  ```shell:brew
+  競合するコマンドがある時、以下のコマンドで上書きする。
+  brew link --overwrite コマンド名
+  
+  上書きによって削除されるすべてのファイルを一覧表示する。
+  brew link --overwrite --dry-run コマンド名
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

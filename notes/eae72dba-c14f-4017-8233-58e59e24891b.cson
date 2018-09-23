@@ -1,0 +1,17 @@
+createdAt: "2018-08-10T05:48:42.571Z"
+updatedAt: "2018-08-10T05:50:19.094Z"
+type: "MARKDOWN_NOTE"
+folder: "385b0e84cae7b792428a"
+title: "Vueインストール"
+content: '''
+  # Vueインストール
+  
+  ## 2018/8/10
+  ```shell:fish
+  yarn global add @vue/cli
+  ```
+  でインストール
+'''
+tags: []
+isStarred: false
+isTrashed: false

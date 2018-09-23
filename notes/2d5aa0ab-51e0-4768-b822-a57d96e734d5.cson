@@ -1,5 +1,5 @@
 createdAt: "2018-05-29T05:03:37.189Z"
-updatedAt: "2018-06-02T00:33:00.309Z"
+updatedAt: "2018-06-12T06:23:15.465Z"
 type: "SNIPPET_NOTE"
 folder: "b137b4b21d4f9bfac0e4"
 title: "Swift授業"
@@ -187,6 +187,107 @@ snippets: [
       greet("永谷園")
       
       [1, 2, 3, 4, 5].filter { $0 % 2 == 0 }.forEach { print($0) }
+    '''
+  }
+  {
+    name: "20180612.swift"
+    mode: "Swift"
+    content: '''
+      //: Playground - noun: a place where people can play
+      
+      import UIKit
+      
+      var str = "Hello, playground"
+      
+      let info = [
+        "width": 360,
+        "heigth": 640,
+        "fontSize": 16
+      ]
+      
+      print(info)
+      print(info["width"]!)
+      
+      let info2 = Dictionary(dictionaryLiteral:
+        ("width", 360),
+        ("heigth", 640),
+        ("fontSize", 16)
+      )
+      
+      print(info2["width"]!)
+      
+      //if let index = info.index(where: { $0.key == "width" }) {
+      //  print(index)
+      //}
+      
+      let tuples = [
+        ("width", 360),
+        ("heigth", 640),
+        ("fontSize", 16)
+      ]
+      
+      let info3 = Dictionary(uniqueKeysWithValues: tuples)
+      
+      // もしnilであればdefaultに指定した値を返す
+      //info["color", default: 0]
+      
+      //info.keys.forEach{ print($0) }
+      //print(info.values)
+      
+      info.forEach { k, v in
+        print("\\(k): \\(v)")
+      }
+      
+      for (index, elem) in info.enumerated() {
+        print("\\(index): \\(elem)")
+      }
+      
+      // 取れるのはkeyでもvalueでもなくDictionary.index
+      info.index(forKey: "width")
+      
+      let i = info.index { $0.value == 640 }
+      print(info[i!])
+      
+      let bool = info.contains { $0.key == "fontSize" }
+      
+      print(bool)
+      
+      info.filter { $0.value > 100 }.forEach{ print($0) }
+      
+      print(info.min { $0.value < $1.value }!)
+      print(info.max { $0.value < $1.value }!)
+      print(info.first { $0.key == "width" }!)
+      
+      print(info.map { ( $0.key, $0.value * 2 ) })
+      print(info.mapValues { ( $0 * 2 ) })
+      
+      print(info.sorted { $0.value < $1.value })
+      
+      let (key, value) = ("age", 43)
+      print(key)
+      
+      let subInfo = [
+        "width": 10,
+        "color": 10
+      ]
+      
+      // 同じkeyがあった時は呼び出し元が優先される
+      let mergedInfo = info.merging(subInfo) {
+        current, new in current
+      }
+      
+      // 同じkeyがあった時は呼び出し元が優先される
+      let mergedInfo2 = info.merging(subInfo) {
+        current, new in new
+      }
+      
+      
+      
+      print(mergedInfo)
+      
+      
+      
+      
     '''
   }
 ]

@@ -99,6 +99,21 @@
       "key": "34af9ebfb84cf50e70ae",
       "color": "#FF8E00",
       "name": "Security"
+    },
+    {
+      "key": "6440e39f32acc755b8c6",
+      "color": "#B013A4",
+      "name": "brew"
+    },
+    {
+      "key": "f93ca70034e6ecce43f2",
+      "color": "#E10051",
+      "name": "font"
+    },
+    {
+      "key": "385b0e84cae7b792428a",
+      "color": "#B013A4",
+      "name": "Vue"
     }
   ],
   "version": "1.0"

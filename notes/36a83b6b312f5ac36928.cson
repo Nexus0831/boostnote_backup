@@ -1,5 +1,5 @@
 createdAt: "2018-02-24T06:21:45.417Z"
-updatedAt: "2018-03-20T13:54:19.530Z"
+updatedAt: "2018-09-23T15:40:25.391Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "コマンド"
@@ -50,6 +50,7 @@ content: '''
   ファイルではなくディレクトリを指定した際に`-R`オプションをつけるとそのディレクトリと含まれるファイルの所有者も変更する。
   ```shell
   sudo chown -R $USER /usr/local/bin
+  sudo chown -R (whoami) /usr/local/bin
   ```
   
   

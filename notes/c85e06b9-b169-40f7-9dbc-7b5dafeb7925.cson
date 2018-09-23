@@ -1,0 +1,203 @@
+createdAt: "2018-06-19T13:40:20.598Z"
+updatedAt: "2018-06-30T00:42:56.723Z"
+type: "SNIPPET_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "知見"
+description: '''
+  知見
+  
+'''
+snippets: [
+  {
+    name: "MDCBottomNavBarExample.swift"
+    mode: "Swift"
+    content: '''
+      import UIKit
+      import MaterialComponents
+      
+      class ViewController: UIViewController, UITextFieldDelegate, MDCBottomNavigationBarDelegate {
+        @IBOutlet weak var heightField: MDCTextField!
+        @IBOutlet weak var weightField: MDCTextField!
+        @IBOutlet weak var calcButton: MDCRaisedButton!
+        @IBOutlet weak var resultLabel: UILabel!
+        @IBOutlet weak var bottomNavBar: MDCBottomNavigationBar!
+        
+        
+        override func viewDidLoad() {
+          super.viewDidLoad()
+          bottomNavBarSettings()
+          inputSettings(heightField, placeholder: "height")
+          inputSettings(weightField, placeholder: "weight")
+          calcButton.setBackgroundColor(MDCPalette.blue.tint500)
+        }
+        
+        func bottomNavBarSettings() {
+          bottomNavBar.delegate = self
+          let calcItem = UITabBarItem(title: "BMI", image: UIImage(named: "baseline_local_hospital_white_24dp"), tag: 0)
+          let dataItem =
+            UITabBarItem(title: "Data", image: UIImage(named: "baseline_assignment_white_24pt_1x"), tag: 0)
+          bottomNavBar.items = [ calcItem, dataItem ]
+          bottomNavBar.backgroundColor = MDCPalette.blue.tint500
+          bottomNavBar.unselectedItemTintColor = .gray
+          bottomNavBar.selectedItemTintColor = .white
+          bottomNavBar.selectedItem = calcItem
+          bottomNavBar.itemTitleFont = UIFont(name: "RobotoMonoForPowerline-Regular", size: 13)!
+        }
+        
+        func inputSettings(_ textField: MDCTextField, placeholder: String = "") {
+          textField.delegate = self
+          textField.underline?.color = MDCPalette.blue.tint500
+          textField.font = UIFont(name: "RobotoMonoForPowerline-Regular", size: 16)
+          textField.textColor = UIColor.white
+          textField.tintColor = UIColor.white
+          textField.clearButton.tintColor = UIColor.white
+          textField.placeholder = placeholder
+          textField.placeholderLabel.textColor = UIColor.white
+        }
+      
+        override func didReceiveMemoryWarning() {
+          super.didReceiveMemoryWarning()
+          // Dispose of any resources that can be recreated.
+        }
+        
+        func bottomNavigationBar(_ bottomNavigationBar: MDCBottomNavigationBar, shouldSelect item: UITabBarItem) -> Bool {
+          return true
+        }
+      
+        func bottomNavigationBar(_ bottomNavigationBar: MDCBottomNavigationBar, didSelect item: UITabBarItem) {
+          if item.title == "Data" {
+            let dataViewController = UIStoryboard(
+              name: "Main",
+              bundle: nil
+              ).instantiateViewController(
+                withIdentifier: "dataView"
+              ) as! DataViewController
+      
+            present(dataViewController, animated: false, completion: nil)
+            bottomNavBar.selectedItem = bottomNavigationBar.items[0]
+          }
+        }
+      
+        @IBAction func calculation(_ sender: UIButton) {
+          let height = Double(heightField.text!)
+          let weight = Double(weightField.text!)
+          let bmi = weight! / pow(height! / 100, 2)
+          let result = String(format: "%.2f", bmi)
+          
+          switch bmi {
+          case 0..<18.5:
+            resultLabel.text = result + "\\n痩せ型です"
+          case 25.0...:
+            resultLabel.text = result + "\\n肥満体型です"
+          default:
+            resultLabel.text = result + "\\n標準体型です"
+          }
+          
+          heightField.text = ""
+          weightField.text = ""
+        }
+        
+      }
+    '''
+  }
+  {
+    name: "TableView.swift"
+    mode: "Swift"
+    content: '''
+      import UIKit
+      
+      class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+        
+        @IBOutlet weak var tableView: UITableView!
+        
+        var animals = ["🐓", "🐊", "🐍", "🐏"]
+        
+        override func viewDidLoad() {
+          super.viewDidLoad()
+          
+          tableView.delegate = self
+          tableView.dataSource = self
+        }
+      
+        override func didReceiveMemoryWarning() {
+          super.didReceiveMemoryWarning()
+          // Dispose of any resources that can be recreated.
+        }
+        
+        func numberOfSections(in tableView: UITableView) -> Int {
+          return 1
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          print(animals[indexPath.row])
+        }
+        
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+          if editingStyle == .delete {
+            animals.remove(at: indexPath.row)
+            tableView.reloadData()
+          }
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+          let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+          
+          cell.textLabel?.text = animals[indexPath.row]
+          
+          return cell
+        }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+          return animals.count
+        }
+        
+        @IBAction func add(_ sender: Any) {
+          animals.append("🐉")
+          animals.append("🦄")
+          tableView.reloadData()
+        }
+        
+      }
+    '''
+  }
+  {
+    name: "UserDefault.swift"
+    mode: "Swift"
+    content: '''
+      class UserData: NSObject, NSCoding {
+        var date: String!
+        var bmi: String!
+        var rating: String!
+      
+        init(_ date: String, _ bmi: String, _ rating: String) {
+          self.date = date
+          self.bmi = bmi
+          self.rating = rating
+        }
+      
+        required convenience init(coder aDecoder: NSCoder) {
+          let date = aDecoder.decodeObject(forKey: "date") as! String
+          let bmi = aDecoder.decodeObject(forKey: "bmi") as! String
+          let rating = aDecoder.decodeObject(forKey: "rating") as! String
+          self.init(date, bmi, rating)
+        }
+        
+        func encode(with aCoder: NSCoder) {
+          aCoder.encode(date, forKey: "date")
+          aCoder.encode(bmi, forKey: "bmi")
+          aCoder.encode(rating, forKey: "rating")
+        }
+      }
+      
+      // 保存
+      NSKeyedArchiver.archivedData(withRootObject: userDatas)
+      
+      // 取得
+      let loadData = defaults.object(forKey: "son") as! Data
+      var userDatas = NSKeyedUnarchiver.unarchiveObject(with: loadData) as! [UserData]
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,16 @@
+createdAt: "2018-06-26T06:31:54.146Z"
+updatedAt: "2018-07-04T06:31:04.968Z"
+type: "MARKDOWN_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "AutoLayout"
+content: '''
+  # AutoLayout
+  
+  - 制約が足りないとエラーが出る。
+  - 最低でも４方向すべての`margin`を設定する。
+  - コツとしてはサイズがわかるように基準を決めてやる
+  - 50%などで幅を指定する場合、親と結びつけて`EqualWigth`などを指定する。
+'''
+tags: []
+isStarred: false
+isTrashed: false

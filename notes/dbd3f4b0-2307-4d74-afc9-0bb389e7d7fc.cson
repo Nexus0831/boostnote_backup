@@ -1,0 +1,17 @@
+createdAt: "2018-07-23T04:36:22.996Z"
+updatedAt: "2018-07-23T04:38:57.179Z"
+type: "MARKDOWN_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "フォントの読み込み"
+content: '''
+  # フォントの読み込み
+  
+  1. 使いたいフォントをFont Bookから選らぶ
+  2. フォントを右クリックしフォルダで開く
+  3. フォントファイルをプロジェクト直下にドラッグ＆ドロップ
+  4. 必要な項目にチェックをいれて追加
+  5. コードから使うときは`PostScript名`で指定する。
+'''
+tags: []
+isStarred: false
+isTrashed: false

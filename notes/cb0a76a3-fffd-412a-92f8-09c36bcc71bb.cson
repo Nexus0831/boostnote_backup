@@ -1,0 +1,22 @@
+createdAt: "2018-07-03T06:42:50.109Z"
+updatedAt: "2018-07-03T06:44:31.719Z"
+type: "MARKDOWN_NOTE"
+folder: "b137b4b21d4f9bfac0e4"
+title: "豆知識"
+content: '''
+  # 豆知識
+  
+  ## `didSet`
+  `didSet`はその変数に値がセットされた後に行われる処理である。
+  ```swift:didSet.swift
+  var detailItem: NSDate? {
+    didSet {
+      // Update the view. 
+      configureView()
+    }
+  }
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false
