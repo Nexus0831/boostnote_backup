@@ -1,5 +1,5 @@
 createdAt: "2018-03-18T15:05:16.455Z"
-updatedAt: "2018-05-15T10:25:27.282Z"
+updatedAt: "2018-09-25T01:11:51.914Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "未解決"
@@ -20,6 +20,7 @@ content: '''
     1,2行目で一時的に`$HOME/.pyenv/shims`のパスを削除した`PATH`を設定
     3行目で`brew`の処理を実行。
     4行目で`$HOME/.pyenv/shims`を再設定。
+    なんか`$`の前に`\\`入る。
     
 '''
 tags: [
