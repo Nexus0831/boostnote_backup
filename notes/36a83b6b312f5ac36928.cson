@@ -1,5 +1,5 @@
 createdAt: "2018-02-24T06:21:45.417Z"
-updatedAt: "2018-09-23T15:40:25.391Z"
+updatedAt: "2018-09-29T12:06:57.684Z"
 type: "MARKDOWN_NOTE"
 folder: "796d5842bb9d51e60090"
 title: "コマンド"
@@ -53,6 +53,11 @@ content: '''
   sudo chown -R (whoami) /usr/local/bin
   ```
   
+  ## シンボリックリンク
+  ```shell:fish
+  ln -s シンボリックリンク元ファイルパス シンボリックリンク先
+  ln -s ~/dotfiles/.vimrc ~/.vimrc
+  ```
   
   
   
